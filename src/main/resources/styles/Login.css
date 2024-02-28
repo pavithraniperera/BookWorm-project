@@ -1,0 +1,26 @@
+.anchor-pane-with-background {
+    -fx-background-image: url("../images/loginBackground.jpg"); /* Reference to the image in the resources directory */
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.anchor-pane-with-background2{
+    -fx-background-color: rgb(236, 197, 147);
+    -fx-border-color: rgba(229, 146, 24, 0.58);
+    -fx-border-width: 3px;
+    -fx-cursor: hand;
+
+}
+
+.button-color{
+    -fx-background-color: #ece6e6;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.button-color:hover{
+    -fx-background-color: #efc68d;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
