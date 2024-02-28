@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="806.0" prefWidth="1203.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+   <children>
+      <AnchorPane layoutX="273.0" layoutY="221.0" prefHeight="411.0" prefWidth="348.0" styleClass="anchor-pane-with-background2" stylesheets="@../styles/Login.css">
+         <children>
+            <ImageView fitHeight="176.0" fitWidth="226.0" layoutX="86.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-user-group-100.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="115.0" layoutY="217.0" prefHeight="46.0" prefWidth="119.0" text="Users">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="33.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnUserLogin" buttonType="RAISED" layoutX="74.0" layoutY="299.0" onAction="#btnUserLoginOnAction" prefHeight="62.0" prefWidth="198.0" styleClass="button-color" stylesheets="@../styles/Login.css" text="Login" textFill="#b95656">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="719.0" layoutY="222.0" prefHeight="411.0" prefWidth="348.0" styleClass="anchor-pane-with-background2" stylesheets="@../styles/Login.css">
+         <children>
+            <ImageView fitHeight="165.0" fitWidth="176.0" layoutX="92.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-system-administrator-female-100.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="115.0" layoutY="217.0" prefHeight="46.0" prefWidth="119.0" text="Admin">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="33.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnAdminLogin" buttonType="RAISED" layoutX="74.0" layoutY="299.0" prefHeight="62.0" prefWidth="198.0" onAction="#btnAdminLoginOnAction" styleClass="button-color" stylesheets="@../styles/Login.css" text="Login" textFill="#b95656">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="483.0" layoutY="43.0" prefHeight="149.0" prefWidth="591.0" text="BookWorm" textFill="#d7855e">
+         <font>
+            <Font name="Liberation Serif Bold" size="89.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="193.0" fitWidth="198.0" layoutX="325.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/reading-gif-6.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
