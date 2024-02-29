@@ -63,3 +63,12 @@
     -fx-border-color: rgba(229, 146, 24, 0.58);
     -fx-border-width: 2px;
 }
+
+
+.button-color-register{
+    -fx-background-color: #86c48e;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: rgba(229, 146, 24, 0.58);
+    -fx-border-width: 2px;
+}
