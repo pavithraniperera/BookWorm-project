@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserRegisterFormController">
+   <children>
+      <AnchorPane layoutX="417.0" layoutY="83.0" prefHeight="705.0" prefWidth="663.0" styleClass="anchor-pane-with-background2">
+         <children>
+            <Label layoutX="173.0" layoutY="39.0" prefHeight="94.0" prefWidth="344.0" text="Register Now !!!" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Gurajada" size="54.0" />
+               </font>
+            </Label>
+            <Label layoutX="86.0" layoutY="150.0" prefHeight="42.0" prefWidth="311.0" text="Name :">
+               <font>
+                  <Font name="Chilanka Regular" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" layoutX="82.0" layoutY="206.0" prefHeight="51.0" prefWidth="475.0" promptText="Enter Your name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="86.0" layoutY="289.0" prefHeight="42.0" prefWidth="311.0" text="E Mail :">
+               <font>
+                  <Font name="Chilanka Regular" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="82.0" layoutY="345.0" prefHeight="51.0" prefWidth="475.0" promptText="Enter Your Email as UserName">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="86.0" layoutY="432.0" prefHeight="42.0" prefWidth="311.0" text="Password">
+               <font>
+                  <Font name="Chilanka Regular" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPwd" layoutX="82.0" layoutY="485.0" prefHeight="51.0" prefWidth="475.0" promptText="Create a strong password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="96.0" layoutY="529.0" prefHeight="42.0" prefWidth="378.0" text="There must be at least 8 characters" textFill="#b55151">
+               <font>
+                  <Font name="Chilanka Regular" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnCreateAccount" buttonType="RAISED" layoutX="178.0" layoutY="601.0" onAction="#btnCreateAccountOnAction" prefHeight="42.0" prefWidth="298.0" styleClass="button-color2" text="Create Account" textFill="#9e6a1c">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="539.0" fitWidth="367.0" layoutX="121.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/register.png" />
+         </image>
+         <effect>
+            <DropShadow radius="27.73" width="91.92" />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>
