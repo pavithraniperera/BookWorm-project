@@ -1,0 +1,43 @@
+.anchor-pane-with-background {
+    -fx-background-image: url("../images/dashboardBackground.jpg"); /* Reference to the image in the resources directory */
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.anchor-pane-with-background-color{
+    -fx-background-color: #fad9aa;
+}
+.anchor-pane-with-background-color:hover{
+    -fx-background-color: rgba(218, 197, 144, 0.9);
+}
+.button-color{
+    -fx-background-color: #fdf7f7;
+    -fx-border-color: rgba(255, 216, 118, 0.9);
+    -fx-border-width: 1px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+
+}
+.button-color:hover{
+    -fx-background-color: #fad9aa;
+    -fx-border-width: 2px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-border-color: rgb(253, 247, 247);
+}
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+}
+
+/* Set the background of the table cells to transparent */
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: #c7ba97;
+    -fx-border-width: 1px;
+    -fx-font-size: 16px;
+}
+.table-view .column-header {
+    -fx-background-color: #eacd83;
+    -fx-font-size: 14px;
+}
