@@ -75,11 +75,29 @@ public class AdminDashboardFormController {
 
     @FXML
     void btnBranchesOnAction(ActionEvent event) {
+        Parent fxml = null;
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("/view/Manage_branches_form.fxml"));
+            pane2.getChildren().removeAll();
+
+            pane2.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @FXML
     void btnTransactionOnAction(ActionEvent event) {
+        Parent fxml = null;
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("/view/All_Transaction_history_form.fxml"));
+            pane2.getChildren().removeAll();
+
+            pane2.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
