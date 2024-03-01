@@ -26,6 +26,7 @@
     -fx-background-radius: 30px;
     -fx-border-color: rgb(253, 247, 247);
 }
+
 .table-view {
     -fx-background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
 }
@@ -40,4 +41,15 @@
 .table-view .column-header {
     -fx-background-color: #eacd83;
     -fx-font-size: 14px;
+}
+
+.text-field{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(229, 146, 24, 0.58);
+    -fx-border-width: 2px;
+}
+
+.button-color2:hover{
+    -fx-background-color: rgba(255, 196, 118, 0.9);
 }
