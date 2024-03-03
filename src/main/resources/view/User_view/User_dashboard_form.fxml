@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="870.0" prefWidth="1239.0" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserDashboardFormController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="85.0" prefWidth="1245.0" styleClass="anchor-pane-with-background-color">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <children>
+            <JFXButton fx:id="btnDashbord" buttonType="RAISED" layoutX="48.0" layoutY="22.0" onAction="#btnDashboardOnAction" prefHeight="41.0" prefWidth="161.0" styleClass="button-color" text="DashBoard">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnLibrary" buttonType="RAISED" layoutX="271.0" layoutY="22.0" onAction="#btnLibraryOnAction" prefHeight="41.0" prefWidth="161.0" styleClass="button-color" text="My Library">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnBorrow" buttonType="RAISED" layoutX="508.0" layoutY="22.0" onAction="#btnBorrowOnAction" prefHeight="41.0" prefWidth="161.0" styleClass="button-color" text="Borrow">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnHistory" buttonType="RAISED" layoutX="732.0" layoutY="22.0" onAction="#btnHistoryOnAction" prefHeight="41.0" prefWidth="161.0" styleClass="button-color" text="My History">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="41.0" fitWidth="40.0" layoutX="1172.0" layoutY="20.0" onDragOver="#imgClose" onMouseClicked="#imageCloseOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-close-window-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgUsername" fitHeight="40.0" fitWidth="40.0" layoutX="1071.0" layoutY="20.0" onMouseClicked="#imgUserNameOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-test-account-80.png" />
+               </image>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </ImageView>
+            <Label layoutX="1048.0" layoutY="56.0" prefHeight="16.0" prefWidth="119.0" text="User Name" textFill="#1e0000">
+               <font>
+                  <Font name="DejaVuMathTeXGyre-Regular" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="84.0" prefHeight="785.0" prefWidth="1245.0" styleClass="anchor-pane-with-background">
+         <children>
+            <ComboBox fx:id="cmbCategory" layoutX="301.0" layoutY="57.0" onAction="#cmbCategoryOnAction" prefHeight="40.0" prefWidth="327.0" promptText="Select a category" style="-fx-background-color: white;" styleClass="text-field" />
+            <Label layoutX="80.0" layoutY="61.0" prefHeight="30.0" prefWidth="223.0" text="Select a Category :" textFill="#362020">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSearchBook" layoutX="750.0" layoutY="61.0" onAction="#txtSearchOnAction" prefHeight="41.0" prefWidth="453.0" promptText="           Search Book by name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="766.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-search-80.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tblDashboardBook" layoutX="123.0" layoutY="182.0" prefHeight="439.0" prefWidth="1000.0">
+              <columns>
+                <TableColumn fx:id="colBookName" prefWidth="249.0" text="Book Name" />
+                <TableColumn fx:id="colAuthor" prefWidth="213.0" text="Author" />
+                  <TableColumn fx:id="colGener" prefWidth="205.0" text="Gener" />
+                  <TableColumn fx:id="colLanguage" prefWidth="158.0" text="Language" />
+                  <TableColumn fx:id="colStatus" prefWidth="174.0" text="Status" />
+              </columns>
+               <styleClass>
+                  <String fx:value="table-row-cell" />
+                  <String fx:value="column-header" />
+                  <String fx:value="table-view" />
+               </styleClass>
+            </TableView>
+            <CheckBox fx:id="CheckboxFilter" layoutX="130.0" layoutY="128.0" mnemonicParsing="false" onAction="#checkBoxFilterOnAction" prefHeight="30.0" prefWidth="272.0" text="Only Available Books">
+               <font>
+                  <Font name="DejaVu Sans" size="16.0" />
+               </font>
+            </CheckBox>
+            <ImageView fitHeight="327.0" fitWidth="394.0" layoutX="842.0" layoutY="503.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/search_book-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
