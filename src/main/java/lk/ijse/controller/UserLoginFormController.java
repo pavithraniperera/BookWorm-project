@@ -36,6 +36,16 @@ public class UserLoginFormController {
 
     @FXML
     void btnLogInOnAction(ActionEvent event) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/User_view/User_dashboard_form.fxml"));
+            Scene scene = new Scene(anchorPane);
+            Stage stage = (Stage) root1.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
