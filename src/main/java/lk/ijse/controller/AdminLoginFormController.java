@@ -35,7 +35,7 @@ public class AdminLoginFormController {
     void btnLogInOnAction(ActionEvent event) {
         AnchorPane anchorPane = null;
         try {
-            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_dashboard-form.fxml"));
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_dashboard-form.fxml"));
             Scene scene = new Scene(anchorPane);
             Stage stage = (Stage) root.getScene().getWindow();
             stage.setScene(scene);

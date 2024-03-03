@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserRegisterFormController">
+<AnchorPane prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserRegisterFormController">
    <children>
       <AnchorPane layoutX="417.0" layoutY="83.0" prefHeight="705.0" prefWidth="663.0" styleClass="anchor-pane-with-background2">
          <children>
@@ -63,7 +63,7 @@
       </AnchorPane>
       <ImageView fitHeight="539.0" fitWidth="367.0" layoutX="121.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/register.png" />
+            <Image url="@../../images/register.png" />
          </image>
          <effect>
             <DropShadow radius="27.73" width="91.92" />

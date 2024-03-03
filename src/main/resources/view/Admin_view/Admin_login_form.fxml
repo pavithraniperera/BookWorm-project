@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane  fx:id="root" prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminLoginFormController">
+<AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminLoginFormController">
    <children>
       <AnchorPane layoutX="182.0" layoutY="102.0" prefHeight="722.0" prefWidth="603.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="anchor-pane-with-background3">
          <children>
@@ -19,7 +19,7 @@
                   <Font name="DejaVu Sans Bold" size="46.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUserName" layoutX="85.0" layoutY="209.0" prefHeight="56.0" prefWidth="411.0" promptText="UserName" styleClass="text-field" stylesheets="@../styles/Login.css">
+            <TextField fx:id="txtUserName" layoutX="85.0" layoutY="209.0" prefHeight="56.0" prefWidth="411.0" promptText="UserName" styleClass="text-field" stylesheets="@../../styles/Login.css">
                <font>
                   <Font size="16.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="showTextPw" layoutX="86.0" layoutY="345.0" prefHeight="56.0" prefWidth="411.0" styleClass="text-field" stylesheets="@../styles/Login.css" />
+            <TextField fx:id="showTextPw" layoutX="86.0" layoutY="345.0" prefHeight="56.0" prefWidth="411.0" styleClass="text-field" stylesheets="@../../styles/Login.css" />
             <PasswordField fx:id="hiddenTxtPassword" layoutX="85.0" layoutY="345.0" prefHeight="56.0" prefWidth="411.0" promptText="Password" styleClass="text-field">
                <font>
                   <Font size="16.0" />
@@ -48,14 +48,14 @@
             </JFXButton>
             <ImageView fitHeight="101.0" fitWidth="116.0" layoutX="112.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-system-administrator-female-100.png" />
+                  <Image url="@../../images/icons8-system-administrator-female-100.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
       <ImageView fitHeight="425.0" fitWidth="603.0" layoutX="635.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/man-at-library-vector-43577249-removebg-preview.png" />
+            <Image url="@../../images/man-at-library-vector-43577249-removebg-preview.png" />
          </image>
       </ImageView>
    </children>

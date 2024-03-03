@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UnreturnedBookFormController">
+<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UnreturnedBookFormController">
    <children>
       <Label layoutX="394.0" layoutY="46.0" prefHeight="60.0" prefWidth="393.0" text="Unreturned Books" textFill="#ab8259">
          <font>
@@ -39,7 +39,7 @@
       </Label>
       <ImageView fitHeight="251.0" fitWidth="496.0" layoutY="544.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/UnreturnedBookImg.png" />
+            <Image url="@../../images/UnreturnedBookImg.png" />
          </image>
          <effect>
             <InnerShadow />

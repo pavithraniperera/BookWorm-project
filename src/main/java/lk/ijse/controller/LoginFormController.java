@@ -18,7 +18,7 @@ public class LoginFormController {
     public void btnUserLoginOnAction(ActionEvent actionEvent) {
         AnchorPane anchorPane = null;
         try {
-            anchorPane = FXMLLoader.load(getClass().getResource("/view/User_login_form.fxml"));
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/User_view/User_login_form.fxml"));
             Scene scene = new Scene(anchorPane);
             Stage stage = (Stage) root.getScene().getWindow();
             stage.setScene(scene);
@@ -32,7 +32,7 @@ public class LoginFormController {
     public void btnAdminLoginOnAction(ActionEvent actionEvent) {
         AnchorPane anchorPane = null;
         try {
-            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_login_form.fxml"));
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_login_form.fxml"));
             Scene scene = new Scene(anchorPane);
             Stage stage = (Stage) root.getScene().getWindow();
             stage.setScene(scene);

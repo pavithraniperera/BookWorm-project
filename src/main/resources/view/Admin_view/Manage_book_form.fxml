@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ManageBookFormController">
+<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ManageBookFormController">
    <children>
       <TextField fx:id="txtTitle" layoutX="194.0" layoutY="131.0" prefHeight="46.0" prefWidth="316.0" promptText="Book Title">
          <font>
@@ -78,14 +78,14 @@
       </TableView>
       <ImageView fitHeight="402.0" fitWidth="339.0" layoutX="805.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/7c0e1ecf91f34e736e867698817c6780-removebg-preview.png" />
+            <Image url="@../../images/7c0e1ecf91f34e736e867698817c6780-removebg-preview.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="btnAdd" layoutX="857.0" layoutY="429.0" onAction="#btnAddOnAction" prefHeight="52.0" prefWidth="212.0" styleClass="button-color2" text="Add ">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-add-64.png" />
+                  <Image url="@../../images/icons8-add-64.png" />
                </image>
             </ImageView>
          </graphic>
@@ -97,7 +97,7 @@
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-edit-80.png" />
+                  <Image url="@../../images/icons8-edit-80.png" />
                </image>
             </ImageView>
          </graphic>
@@ -109,7 +109,7 @@
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons8-delete-80.png" />
+                  <Image url="@../../images/icons8-delete-80.png" />
                </image>
             </ImageView>
          </graphic>

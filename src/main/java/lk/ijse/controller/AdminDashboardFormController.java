@@ -62,7 +62,7 @@ public class AdminDashboardFormController {
     void btnBookOnAction(ActionEvent event) {
         Parent fxml = null;
         try {
-            fxml = FXMLLoader.load(getClass().getResource("/view/Manage_book_form.fxml"));
+            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_view/Manage_book_form.fxml"));
             pane2.getChildren().removeAll();
 
             pane2.getChildren().setAll(fxml);
@@ -77,7 +77,7 @@ public class AdminDashboardFormController {
     void btnBranchesOnAction(ActionEvent event) {
         Parent fxml = null;
         try {
-            fxml = FXMLLoader.load(getClass().getResource("/view/Manage_branches_form.fxml"));
+            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_view/Manage_branches_form.fxml"));
             pane2.getChildren().removeAll();
 
             pane2.getChildren().setAll(fxml);
@@ -91,7 +91,7 @@ public class AdminDashboardFormController {
     void btnTransactionOnAction(ActionEvent event) {
         Parent fxml = null;
         try {
-            fxml = FXMLLoader.load(getClass().getResource("/view/All_Transaction_history_form.fxml"));
+            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_view/All_Transaction_history_form.fxml"));
             pane2.getChildren().removeAll();
 
             pane2.getChildren().setAll(fxml);
@@ -112,7 +112,7 @@ public class AdminDashboardFormController {
     void imgProfileOnAction(MouseEvent event) {
         Parent fxml = null;
         try {
-            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_profile_form.fxml"));
+            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_profile_form.fxml"));
             pane2.getChildren().removeAll();
 
             pane2.getChildren().setAll(fxml);
@@ -126,7 +126,7 @@ public class AdminDashboardFormController {
 
         AnchorPane anchorPane = null;
         try {
-            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_dashboard-form.fxml"));
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_dashboard-form.fxml"));
             Scene scene = new Scene(anchorPane);
             Stage stage = (Stage) root.getScene().getWindow();
             stage.setScene(scene);

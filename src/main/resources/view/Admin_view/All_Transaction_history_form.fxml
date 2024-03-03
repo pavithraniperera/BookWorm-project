@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="root" prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AllTransactionHistoryFormController">
+<AnchorPane fx:id="root" prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AllTransactionHistoryFormController">
    <children>
       <Label layoutX="359.0" layoutY="46.0" prefHeight="51.0" prefWidth="431.0" text="Transaction History" textFill="#ab8259">
          <font>
@@ -49,10 +49,10 @@
       </TextField>
       <ImageView fitHeight="43.0" fitWidth="37.0" layoutX="797.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons8-search-80.png" />
+            <Image url="@../../images/icons8-search-80.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnOverdue" buttonType="RAISED" layoutX="866.0" layoutY="685.0" onAction="#btnOverdueAction" prefHeight="43.0" prefWidth="279.0" styleClass="button-color2" stylesheets="@../styles/Login.css" text="Overdue Books" textFill="#a15935">
+      <JFXButton fx:id="btnOverdue" buttonType="RAISED" layoutX="866.0" layoutY="685.0" onAction="#btnOverdueAction" prefHeight="43.0" prefWidth="279.0" styleClass="button-color2" stylesheets="@../../styles/Login.css" text="Overdue Books" textFill="#a15935">
          <font>
             <Font name="DejaVu Sans Bold" size="17.0" />
          </font>

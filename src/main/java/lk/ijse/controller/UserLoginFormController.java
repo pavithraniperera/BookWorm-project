@@ -43,7 +43,7 @@ public class UserLoginFormController {
     void btnRegisterOnAction(ActionEvent event) {
         AnchorPane anchorPane = null;
         try {
-            anchorPane = FXMLLoader.load(getClass().getResource("/view/User_register_form.fxml"));
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/User_view/User_register_form.fxml"));
             Scene scene = new Scene(anchorPane);
             Stage stage = (Stage) root1.getScene().getWindow();
             stage.setScene(scene);
