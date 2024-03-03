@@ -110,6 +110,15 @@ public class AdminDashboardFormController {
 
     @FXML
     void imgProfileOnAction(MouseEvent event) {
+        Parent fxml = null;
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("/view/Admin_profile_form.fxml"));
+            pane2.getChildren().removeAll();
+
+            pane2.getChildren().setAll(fxml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
