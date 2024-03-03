@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAdminFormController">
+    <children>
+        <AnchorPane layoutX="207.0" layoutY="160.0" prefHeight="532.0" prefWidth="826.0" styleClass="anchor-pane-with-background2" stylesheets="@../../styles/Login.css">
+            <children>
+                <ImageView fitHeight="189.0" fitWidth="217.0" layoutX="310.0" layoutY="-80.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/icons8-system-administrator-female-100.png" />
+                    </image>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ImageView>
+                <Label layoutX="50.0" layoutY="120.0" prefHeight="33.0" prefWidth="189.0" text="Name  :" textFill="#282725">
+                    <font>
+                        <Font name="DejaVu Sans Mono Bold" size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="50.0" layoutY="201.0" prefHeight="33.0" prefWidth="189.0" text="UserName:" textFill="#282725">
+                    <font>
+                        <Font name="DejaVu Sans Mono Bold" size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="50.0" layoutY="277.0" prefHeight="33.0" prefWidth="189.0" text="Password:" textFill="#282725">
+                    <font>
+                        <Font name="DejaVu Sans Mono Bold" size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="50.0" layoutY="352.0" prefHeight="33.0" prefWidth="189.0" text="E -mail:" textFill="#282725">
+                    <font>
+                        <Font name="DejaVu Sans Mono Bold" size="21.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtName" layoutX="176.0" layoutY="120.0" prefHeight="33.0" prefWidth="444.0" />
+                <TextField fx:id="txtUserName" layoutX="176.0" layoutY="199.0" prefHeight="33.0" prefWidth="444.0" />
+                <TextField fx:id="txtPw" layoutX="177.0" layoutY="278.0" prefHeight="33.0" prefWidth="444.0" />
+                <TextField fx:id="txtEmail" layoutX="178.0" layoutY="352.0" prefHeight="33.0" prefWidth="444.0" />
+                <JFXButton fx:id="btnAddAdmin" buttonType="RAISED" layoutX="281.0" layoutY="467.0" onAction="#btnAddAdminOnAction" prefHeight="28.0" prefWidth="261.0" styleClass="button-color2" text="Create Account">
+               <font>
+                  <Font name="Abyssinica SIL" size="16.0" />
+               </font></JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
