@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AllTransactionHistoryFormController">
+<AnchorPane fx:id="root" prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AllTransactionHistoryFormController">
    <children>
       <Label layoutX="359.0" layoutY="46.0" prefHeight="51.0" prefWidth="431.0" text="Transaction History" textFill="#ab8259">
          <font>
