@@ -53,3 +53,9 @@
 .button-color2:hover{
     -fx-background-color: rgba(255, 196, 118, 0.9);
 }
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
