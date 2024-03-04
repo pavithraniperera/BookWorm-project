@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="792.0" prefWidth="1245.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserHistoryFormController">
+   <children>
+      <Label layoutX="468.0" layoutY="46.0" prefHeight="68.0" prefWidth="273.0" text="My History" textFill="#945e12">
+         <font>
+            <Font name="Abyssinica SIL" size="44.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblHistory" layoutX="173.0" layoutY="189.0" prefHeight="415.0" prefWidth="868.0" styleClass="table-row-cell">
+        <columns>
+          <TableColumn fx:id="colBookTitle" prefWidth="257.0" text="Book Title" />
+          <TableColumn fx:id="colBorrowedDate" prefWidth="222.0" text="Borrowed Date" />
+            <TableColumn fx:id="colDueDate" prefWidth="222.0" text="Due Date" />
+            <TableColumn fx:id="colReturnedDate" prefWidth="166.0" text="Returned Date" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="352.0" fitWidth="492.0" layoutX="891.0" layoutY="441.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.86" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/bookHistory.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>
