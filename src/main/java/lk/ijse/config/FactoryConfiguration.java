@@ -1,4 +1,4 @@
-package config;
+package lk.ijse.config;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
