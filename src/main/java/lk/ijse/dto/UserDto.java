@@ -2,17 +2,25 @@ package lk.ijse.dto;
 
 public class UserDto {
     private String userId;
+
+
     private String name;
     private String email;
     private String password;
-    private String telephone;
 
-    public UserDto(String userId, String name, String email, String password,String telephone) {
+
+    public UserDto(String userId, String name, String email, String password) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.telephone = telephone;
+
+    }
+    public UserDto(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+
     }
 
     public String getUserId() {
@@ -48,14 +56,6 @@ public class UserDto {
     }
 
 
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     @Override
     public String toString() {
         return "UserDto{" +
@@ -63,7 +63,6 @@ public class UserDto {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", telephone='" + telephone + '\'' +
                 '}';
     }
 
