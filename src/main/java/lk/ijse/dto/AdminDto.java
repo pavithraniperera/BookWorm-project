@@ -1,0 +1,59 @@
+package lk.ijse.dto;
+
+import java.util.List;
+
+public class AdminDto {
+    private String name;
+    private String email;
+    private String UserName;
+    private String password;
+
+    public AdminDto(String name, String email, String userName, String password) {
+        this.name = name;
+        this.email = email;
+        UserName = userName;
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminDto{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", UserName='" + UserName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
