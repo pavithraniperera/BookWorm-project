@@ -1,5 +1,6 @@
 package lk.ijse.config;
 
+import lk.ijse.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -20,7 +21,7 @@ public class FactoryConfiguration {
         } catch (IOException e) {
             System.out.println(e.getMessage());;
         }
-        Configuration configuration = new Configuration().addProperties(properties);
+        Configuration configuration = new Configuration().addProperties(properties).addAnnotatedClass(Admin.class).addAnnotatedClass(Book.class).addAnnotatedClass(Branch.class).addAnnotatedClass(User.class).addAnnotatedClass(Transaction.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 
