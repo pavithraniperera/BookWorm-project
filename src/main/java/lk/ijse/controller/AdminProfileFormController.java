@@ -12,13 +12,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Bo.custom.AdminBo;
+import lk.ijse.Bo.custom.Boimpl.AdminBoImpl;
+import lk.ijse.dto.AdminDto;
+import lk.ijse.dto.UserDto;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 
 public class AdminProfileFormController {
 
     public AnchorPane pane2;
+    public JFXButton btnSaveChanges;
     @FXML
     private JFXButton btnAddAdmin;
 
@@ -42,6 +48,38 @@ public class AdminProfileFormController {
 
     @FXML
     private TextField txtUserName;
+    public static int id;
+    private static AdminBo adminBo = new AdminBoImpl();
+    public void initialize(){
+        setFormValues();
+
+
+    }
+    private void setFormValues() {
+        try {
+            AdminDto dto = adminBo.getUserById(id);
+            txtEmail.setText(dto.getEmail());
+            txtPw.setText(dto.getPassword());
+            txtName.setText(dto.getName());
+            txtUserName.setText(dto.getUserName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        formType();
+    }
+
+    private void formType() {
+        txtUserName.setEditable(false);
+        txtPw.setEditable(false);
+        txtEmail.setEditable(false);
+        txtName.setEditable(false);
+        btnAddAdmin.setVisible(true);
+        btnDelete.setVisible(true);
+        btnLogOut.setVisible(true);
+        btnUpdate.setVisible(true);
+        btnSaveChanges.setVisible(false);
+    }
 
     @FXML
     void btnAddAdminOnAction(ActionEvent event) {
@@ -60,7 +98,38 @@ public class AdminProfileFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Do you want to log out?");
+        alert.setContentText("Choose your option.");
+
+        ButtonType yesButton = new ButtonType("Yes");
+        ButtonType noButton = new ButtonType("No");
+
+        alert.getButtonTypes().setAll(yesButton, noButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == yesButton) {
+            try {
+                adminBo.deleteAdmin(id);
+                new Alert(Alert.AlertType.INFORMATION,"Your Account is deleted");
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Get the current stage
+                try {
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_login_form.fxml")))); // Load and set the scene for login form
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                stage.setTitle("Login form");
+                stage.centerOnScreen();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
+
+
+
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
@@ -92,7 +161,44 @@ public class AdminProfileFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        txtUserName.setEditable(true);
+        txtPw.setEditable(true);
+        txtEmail.setEditable(true);
+        txtName.setEditable(true);
+        btnAddAdmin.setVisible(false);
+        btnDelete.setVisible(false);
+        btnLogOut.setVisible(false);
+        btnUpdate.setVisible(false);
+        btnSaveChanges.setVisible(true);
+
 
     }
+    private static int getAdminId(String userName) throws SQLException {
+      AdminDto dto = adminBo.getAdminByEmail(userName);
+      return  dto.getAdminId();
+    }
 
+    public void btnSaveChangesOnAction(ActionEvent actionEvent) {
+        try {
+
+            var dto = new AdminDto(id,txtName.getText(),txtEmail.getText(),txtUserName.getText(),txtPw.getText());
+            adminBo.updateAdmin(dto);
+
+
+            new Alert(Alert.AlertType.CONFIRMATION,"Your data Updated Successfully").show();
+            formType();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+    public static void setValue(String text){
+        try {
+            id = getAdminId(text);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
