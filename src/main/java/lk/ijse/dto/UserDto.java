@@ -1,7 +1,7 @@
 package lk.ijse.dto;
 
 public class UserDto {
-    private String userId;
+    private int userId;
 
 
     private String name;
@@ -9,7 +9,7 @@ public class UserDto {
     private String password;
 
 
-    public UserDto(String userId, String name, String email, String password) {
+    public UserDto(int userId, String name, String email, String password) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -23,11 +23,11 @@ public class UserDto {
 
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

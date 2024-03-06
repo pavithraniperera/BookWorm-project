@@ -26,7 +26,7 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String name, String email, String password, String telephone, List<Book> bookList) {
+    public User(int userId, String name, String email, String password, List<Book> bookList) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -35,6 +35,13 @@ public class User {
     }
 
     public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(int userId, String name, String email, String password) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;

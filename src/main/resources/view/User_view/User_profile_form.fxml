@@ -27,10 +27,22 @@
                   <Image url="@../../images/icons8-life-cycle-100.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtName" editable="false" layoutX="81.0" layoutY="102.0" prefHeight="41.0" prefWidth="357.0" />
-            <TextField fx:id="txtEmail" editable="false" layoutX="83.0" layoutY="209.0" prefHeight="41.0" prefWidth="357.0" />
-            <TextField fx:id="txtPw" editable="false" layoutX="83.0" layoutY="319.0" prefHeight="41.0" prefWidth="357.0" />
-            <TextField fx:id="txtTele" editable="false" layoutX="83.0" layoutY="430.0" prefHeight="41.0" prefWidth="357.0" />
+            <TextField fx:id="txtName" layoutX="81.0" layoutY="102.0" prefHeight="41.0" prefWidth="357.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtEmail" layoutX="83.0" layoutY="209.0" prefHeight="41.0" prefWidth="357.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtPw" layoutX="83.0" layoutY="319.0" prefHeight="41.0" prefWidth="357.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtTele" layoutX="83.0" layoutY="430.0" prefHeight="41.0" prefWidth="357.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
             <Label layoutX="93.0" layoutY="62.0" prefHeight="41.0" prefWidth="209.0" text="Name :">
                <font>
                   <Font name="DejaVuMathTeXGyre-Regular" size="20.0" />
@@ -46,7 +58,7 @@
                   <Font name="DejaVuMathTeXGyre-Regular" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="93.0" layoutY="389.0" prefHeight="41.0" prefWidth="209.0" text="Telephone :">
+            <Label layoutX="93.0" layoutY="389.0" prefHeight="41.0" prefWidth="209.0" text="UserId:">
                <font>
                   <Font name="DejaVuMathTeXGyre-Regular" size="20.0" />
                </font>
