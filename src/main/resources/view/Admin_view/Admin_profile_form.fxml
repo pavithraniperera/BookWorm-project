@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="pane2" prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminProfileFormController">
    <children>
       <AnchorPane layoutX="207.0" layoutY="160.0" prefHeight="532.0" prefWidth="826.0" styleClass="anchor-pane-with-background2" stylesheets="@../../styles/Login.css">
@@ -50,6 +49,11 @@
             <JFXButton fx:id="btnUpdate" layoutX="250.0" layoutY="466.0" onAction="#btnUpdateOnAction" styleClass="button-color2" text="Update Account" />
             <JFXButton fx:id="btnAddAdmin" layoutX="426.0" layoutY="466.0" onAction="#btnAddAdminOnAction" styleClass="button-color2" text="Add new Admin" />
             <JFXButton fx:id="btnLogOut" layoutX="584.0" layoutY="466.0" onAction="#btnLogOutOnAction" prefHeight="28.0" prefWidth="88.0" styleClass="button-color2" text="Log out" />
+            <JFXButton fx:id="btnSaveChanges" buttonType="RAISED" layoutX="241.0" layoutY="452.0" onAction="#btnSaveChangesOnAction" prefHeight="28.0" prefWidth="328.0" styleClass="button-color-register" text="Save Changes" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>
