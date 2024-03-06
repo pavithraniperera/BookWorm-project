@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
@@ -50,6 +51,10 @@ public class UserLoginFormController {
 
     }
 
+    private void fillProfileData() {
+       UserProfileFormController.setValue(txtUserName.getText());
+    }
+
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
 
@@ -90,16 +95,19 @@ public class UserLoginFormController {
             for (UserDto dto : userDtos){
                 if (dto.getEmail().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
                     AnchorPane anchorPane = null;
+
                     try {
                         anchorPane = FXMLLoader.load(getClass().getResource("/view/User_view/User_dashboard_form.fxml"));
                         Scene scene = new Scene(anchorPane);
                         Stage stage = (Stage) root1.getScene().getWindow();
                         stage.setScene(scene);
                         stage.centerOnScreen();
+                        fillProfileData();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                     new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
+                    break;
 
                 }
                 else {

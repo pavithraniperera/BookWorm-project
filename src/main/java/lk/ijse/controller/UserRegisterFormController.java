@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -40,6 +41,14 @@ public class UserRegisterFormController {
             try {
                 userBo.saveUser(new UserDto(txtName.getText(),txtEmail.getText(),txtPwd.getText()));
                 new Alert(Alert.AlertType.CONFIRMATION,"Your registration is successful").show();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Get the current stage
+                try {
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/User_view/User_login_form.fxml")))); // Load and set the scene for login form
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                stage.setTitle("Login form");
+                stage.centerOnScreen();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
