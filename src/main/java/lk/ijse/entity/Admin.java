@@ -13,9 +13,9 @@ public class Admin {
     private String name;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = false , unique = true)
     private String userName;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String email;
     @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
     private List<Branch> branches;
@@ -31,6 +31,21 @@ public class Admin {
 
     public Admin() {
 
+    }
+
+    public Admin(int adminId, String name, String password, String userName, String email) {
+        this.adminId = adminId;
+        this.name = name;
+        this.password = password;
+        this.userName = userName;
+        this.email = email;
+    }
+
+    public Admin(String email, String name, String password, String userName) {
+        this.name = name;
+        this.password = password;
+        this.userName = userName;
+        this.email = email;
     }
 
     public int getAdminId() {

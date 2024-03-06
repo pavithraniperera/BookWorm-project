@@ -77,6 +77,7 @@ public class AdminLoginFormController {
                         Stage stage = (Stage) root.getScene().getWindow();
                         stage.setScene(scene);
                         stage.centerOnScreen();
+                        fillProfileData();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -91,6 +92,10 @@ public class AdminLoginFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void fillProfileData() {
+        AdminProfileFormController.setValue(txtUserName.getText());
     }
 
 }

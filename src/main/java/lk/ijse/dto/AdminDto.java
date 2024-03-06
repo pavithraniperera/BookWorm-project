@@ -3,9 +3,19 @@ package lk.ijse.dto;
 import java.util.List;
 
 public class AdminDto {
+    private int adminId;
     private String name;
     private String email;
     private String UserName;
+
+    public AdminDto(int adminId, String name, String email, String userName, String password) {
+        this.adminId = adminId;
+        this.name = name;
+        this.email = email;
+        UserName = userName;
+        this.password = password;
+    }
+
     private String password;
 
     public AdminDto(String name, String email, String userName, String password) {
@@ -50,10 +60,19 @@ public class AdminDto {
     @Override
     public String toString() {
         return "AdminDto{" +
-                "name='" + name + '\'' +
+                "adminId=" + adminId +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", UserName='" + UserName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
 }
