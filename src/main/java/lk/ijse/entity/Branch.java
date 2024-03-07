@@ -26,6 +26,13 @@ public class Branch {
         this.admin = admin;
     }
 
+    public Branch(String branchName, String contact, String address, Admin admin) {
+        this.branchName = branchName;
+        this.contact = contact;
+        Address = address;
+        this.admin = admin;
+    }
+
     public int getBranchId() {
         return branchId;
     }

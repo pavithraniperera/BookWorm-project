@@ -1,5 +1,7 @@
 package lk.ijse.Dao;
 
+import lk.ijse.dto.AdminDto;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -10,4 +12,5 @@ public interface CrudDao <T>{
   List<T> loadAll() throws SQLException;
   T get(String data) throws SQLException;
 
+    T getbyId(int id) throws SQLException;
 }
