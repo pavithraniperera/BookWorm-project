@@ -49,4 +49,10 @@ public class BranchBoImpl implements BranchBo {
     public void deleteBranch(int branchId) throws SQLException {
               branchDao.delete(branchId);
     }
+
+    @Override
+    public BranchDto getBranchById(int branchId) throws SQLException {
+       Branch branch = branchDao.getbyId(branchId);
+       return new BranchDto(branch.getBranchId(),branch.getBranchName(), branch.getContact(), branch.getAddress(), branch.getBranchId());
+    }
 }

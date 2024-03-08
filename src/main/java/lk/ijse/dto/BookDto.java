@@ -2,14 +2,14 @@ package lk.ijse.dto;
 
 public class BookDto {
 
-    private String BookId;
+    private int BookId;
     private String title;
     private String author;
     private String category;
     private  String availability;
-    private String branchId;
+    private int branchId;
 
-    public BookDto(String bookId, String title, String author, String category, String availability, String branchId) {
+    public BookDto(int bookId, String title, String author, String category, String availability, int branchId) {
         BookId = bookId;
         this.title = title;
         this.author = author;
@@ -18,11 +18,20 @@ public class BookDto {
         this.branchId = branchId;
     }
 
-    public String getBookId() {
+    public BookDto(String title, String author, String category, String availability, int branchId) {
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.availability = availability;
+        this.branchId = branchId;
+
+    }
+
+    public int getBookId() {
         return BookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         BookId = bookId;
     }
 
@@ -58,11 +67,11 @@ public class BookDto {
         this.availability = availability;
     }
 
-    public String getBranchId() {
+    public int getBranchId() {
         return branchId;
     }
 
-    public void setBranchId(String branchId) {
+    public void setBranchId(int branchId) {
         this.branchId = branchId;
     }
 

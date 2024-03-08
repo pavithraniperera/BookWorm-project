@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ManageBookFormController">
    <children>
@@ -45,24 +43,18 @@
             <Font name="DejaVu Sans Bold" size="20.0" />
          </font>
       </Label>
-      <Spinner fx:id="spinnerCoppies" layoutX="790.0" layoutY="228.0" prefHeight="46.0" prefWidth="316.0" />
-      <Label layoutX="642.0" layoutY="239.0" prefHeight="35.0" prefWidth="119.0" text="Copies :">
-         <font>
-            <Font name="DejaVu Sans Bold" size="20.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbBranch" layoutX="292.0" layoutY="303.0" prefHeight="46.0" prefWidth="231.0" style="-fx-background-color: whiite;" styleClass="text-field" />
+      <ComboBox fx:id="cmbBranch" layoutX="292.0" layoutY="303.0" prefHeight="46.0" prefWidth="231.0" promptText="Select a Branch" style="-fx-background-color: whiite;" styleClass="text-field" />
       <Label layoutX="86.0" layoutY="309.0" prefHeight="35.0" prefWidth="188.0" text="Library Branch :">
          <font>
             <Font name="DejaVu Sans Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="642.0" layoutY="309.0" prefHeight="35.0" prefWidth="160.0" text="Availability :">
+      <Label layoutX="622.0" layoutY="262.0" prefHeight="35.0" prefWidth="160.0" text="Availability :">
          <font>
             <Font name="DejaVu Sans Bold" size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbAvalability" layoutX="805.0" layoutY="309.0" prefHeight="46.0" prefWidth="287.0" style="-fx-background-color: whiite;" styleClass="text-field" />
+      <ComboBox fx:id="cmbAvalability" layoutX="789.0" layoutY="256.0" prefHeight="46.0" prefWidth="316.0" promptText="select status" style="-fx-background-color: whiite;" styleClass="text-field" />
       <Label layoutX="451.0" layoutY="32.0" prefHeight="60.0" prefWidth="368.0" text="Manage Books" textFill="#ab8259">
          <font>
             <Font name="Abyssinica SIL" size="44.0" />
@@ -72,7 +64,7 @@
         <columns>
           <TableColumn fx:id="collName" prefWidth="199.0" text="Book Name" />
           <TableColumn fx:id="colAuthor" prefWidth="157.0" text="Author" />
-            <TableColumn fx:id="colCopies" prefWidth="157.0" text="Total copies" />
+            <TableColumn fx:id="colCopies" prefWidth="157.0" text="Branch Name" />
             <TableColumn fx:id="colAvail" prefWidth="141.0" text="Availability" />
         </columns>
       </TableView>

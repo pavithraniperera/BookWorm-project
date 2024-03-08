@@ -2,6 +2,8 @@ package lk.ijse.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Branch {
     @Id
@@ -14,6 +16,8 @@ public class Branch {
     private String Address;
     @ManyToOne
     private Admin admin;
+    @OneToMany(mappedBy = "branch")
+    private List<Book> books;
 
     public Branch() {
     }
@@ -24,6 +28,15 @@ public class Branch {
         this.contact = contact;
         Address = address;
         this.admin = admin;
+    }
+
+    public Branch(int branchId, String branchName, String contact, String address, Admin admin, List<Book> books) {
+        this.branchId = branchId;
+        this.branchName = branchName;
+        this.contact = contact;
+        Address = address;
+        this.admin = admin;
+        this.books = books;
     }
 
     public Branch(String branchName, String contact, String address, Admin admin) {
@@ -76,11 +89,20 @@ public class Branch {
     @Override
     public String toString() {
         return "Branch{" +
-                "branchId='" + branchId + '\'' +
+                "branchId=" + branchId +
                 ", branchName='" + branchName + '\'' +
                 ", contact='" + contact + '\'' +
                 ", Address='" + Address + '\'' +
                 ", admin=" + admin +
+                ", books=" + books +
                 '}';
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

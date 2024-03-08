@@ -15,4 +15,6 @@ public interface BranchBo {
     void updateBranch(BranchDto branchDto) throws SQLException;
 
     void deleteBranch(int branchId) throws SQLException;
+
+    BranchDto getBranchById(int branchId) throws SQLException;
 }

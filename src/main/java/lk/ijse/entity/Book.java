@@ -16,22 +16,39 @@ public class Book {
     @Column(nullable = false)
     private String category;
     private  String availability;
-    @Column(nullable = false)
-    private String branchId;
+    @ManyToOne
+    private Branch branch;
     @ManyToMany(mappedBy = "bookList" , cascade = CascadeType.ALL)
     private List<User> userList;
 
     public Book() {
     }
 
-    public Book(int bookId, String title, String author, String category, String availability, String branchId, List<User> userList) {
+    public Book(int bookId, String title, String author, String category, String availability, Branch branch, List<User> userList) {
         BookId = bookId;
         this.title = title;
         this.author = author;
         this.category = category;
         this.availability = availability;
-        this.branchId = branchId;
+        this.branch = branch;
         this.userList = userList;
+    }
+
+    public Book(String title, String author, String category, String availability, Branch branch) {
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.availability = availability;
+        this.branch = branch;
+    }
+
+    public Book(int bookId, String title, String author, String category, String availability, Branch branch) {
+        BookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.availability = availability;
+        this.branch = branch;
     }
 
     public int getBookId() {
@@ -74,12 +91,12 @@ public class Book {
         this.availability = availability;
     }
 
-    public String getBranchId() {
-        return branchId;
+    public Branch getBranchId() {
+        return branch;
     }
 
-    public void setBranchId(String branchId) {
-        this.branchId = branchId;
+    public void setBranchId(Branch branch) {
+        this.branch = branch;
     }
 
     public List<User> getUserList() {
@@ -98,7 +115,7 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", category='" + category + '\'' +
                 ", availability='" + availability + '\'' +
-                ", branchId='" + branchId + '\'' +
+                ", branch='" + branch + '\'' +
                 ", userList=" + userList +
                 '}';
     }
