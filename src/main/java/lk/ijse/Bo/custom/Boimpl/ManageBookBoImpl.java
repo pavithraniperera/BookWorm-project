@@ -49,4 +49,27 @@ public class ManageBookBoImpl implements ManageBookBo {
         Branch branch = branchDao.getbyId(bookDto.getBranchId());
         manageBookDao.update(new Book(bookDto.getBookId(), bookDto.getTitle(), bookDto.getAuthor(), bookDto.getCategory(), bookDto.getAvailability(), branch));
     }
+
+    @Override
+    public List<BookDto> getBookByBranch(String branchName) throws SQLException {
+        Branch branch = branchDao.get(branchName);
+       List<Book> list = manageBookDao.getBookByBranch(branch);
+       List<BookDto> dtos = new ArrayList<>();
+       for (Book book :list){
+           dtos.add(new BookDto(book.getBookId(), book.getTitle(),book.getAuthor(), book.getCategory(), book.getAvailability(),book.getBranchId().getBranchId()));
+       }
+        return dtos;
+    }
+
+    @Override
+    public List<BookDto> getBookByCategory(String category, String branchName) throws SQLException {
+        Branch branch = branchDao.get(branchName);
+        List<Book> books = manageBookDao.getByCategory(category,branch);
+        List<BookDto> dtos = new ArrayList<>();
+        for (Book book :books){
+            dtos.add(new BookDto(book.getBookId(), book.getTitle(),book.getAuthor(), book.getCategory(), book.getAvailability(),book.getBranchId().getBranchId()));
+        }
+        return dtos;
+
+    }
 }

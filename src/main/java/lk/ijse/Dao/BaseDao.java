@@ -10,6 +10,7 @@ import java.util.function.Function;
 
 public abstract class BaseDao<T> {
 
+    //Function<Session, R> action, it means that the action variable is expected to hold a function that takes a Session object as input and produces(return) a result of type R
     public static  <R> R executeTransaction(Function<Session, R> action) throws SQLException {
         Session session = FactoryConfiguration.getInstance().getSession(); // Get a Hibernate session
         Transaction transaction = null;

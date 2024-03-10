@@ -45,7 +45,7 @@ public class UserProfileFormController {
     private TextField txtTele;
     private static String email;
     private static UserBo userBo = new UserBoImpl();
-    private static int id;
+    public static int id;
 
     public void initialize(){
         setFormValues();

@@ -1,9 +1,13 @@
 package lk.ijse.Bo.custom.Boimpl;
 
+import lk.ijse.Bo.custom.BranchBo;
 import lk.ijse.Bo.custom.UserBo;
+import lk.ijse.Dao.custom.BranchDao;
 import lk.ijse.Dao.custom.UserDao;
+import lk.ijse.Dao.custom.daoImpl.BranchDaoImpl;
 import lk.ijse.Dao.custom.daoImpl.UserDaoImpl;
 import lk.ijse.dto.UserDto;
+import lk.ijse.entity.Branch;
 import lk.ijse.entity.User;
 
 import java.sql.SQLException;
@@ -12,10 +16,13 @@ import java.util.List;
 
 public class UserBoImpl implements UserBo {
     private final UserDao userDao = new UserDaoImpl();
+    private BranchDao branchDao = new BranchDaoImpl();
 
     @Override
     public void saveUser(UserDto userDto) throws SQLException {
-              userDao.save(new User(userDto.getName(), userDto.getEmail(), userDto.getPassword()));
+            Branch branch = branchDao.get(userDto.getBranchName());
+
+              userDao.save(new User(userDto.getName(), userDto.getEmail(), userDto.getPassword(),branch));
     }
 
     @Override
@@ -23,7 +30,7 @@ public class UserBoImpl implements UserBo {
         List<UserDto> dtoList = new ArrayList<>();
         List<User> entities = userDao.loadAll();
         for (User user : entities){
-            dtoList.add(new UserDto(user.getName(), user.getEmail(), user.getPassword()));
+            dtoList.add(new UserDto(user.getUserId(), user.getName(), user.getEmail(), user.getPassword()));
         }
         return dtoList;
     }
@@ -43,7 +50,8 @@ public class UserBoImpl implements UserBo {
     @Override
     public UserDto getUserById(int id) throws SQLException {
       User user =  userDao.getbyId(id);
-      return new UserDto(user.getName(), user.getEmail(), user.getPassword());
+        System.out.println(user.getBranch().getBranchName());
+      return new UserDto(user.getName(), user.getEmail(), user.getPassword(),user.getBranch().getBranchName());
     }
 
     @Override

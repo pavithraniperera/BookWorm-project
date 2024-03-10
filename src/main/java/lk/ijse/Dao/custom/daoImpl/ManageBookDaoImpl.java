@@ -1,6 +1,5 @@
 package lk.ijse.Dao.custom.daoImpl;
 
-import lk.ijse.Bo.custom.ManageBookBo;
 import lk.ijse.Dao.BaseDao;
 import lk.ijse.Dao.custom.ManageBookDao;
 import lk.ijse.entity.Book;
@@ -69,5 +68,28 @@ public class ManageBookDaoImpl implements ManageBookDao {
     @Override
     public Book getbyId(int id) throws SQLException {
         return executeTransaction(session -> session.get(Book.class,id));
+    }
+
+    @Override
+    public List<Book> getBookByBranch(Branch branch) throws SQLException {
+        return executeTransaction(session -> {
+            Query query = session.createQuery("from Book where branch=:branch");
+            query.setParameter("branch", branch);
+            List<Book> books= query.getResultList();
+             return books;
+
+        });
+    }
+
+    @Override
+    public List<Book> getByCategory(String category, Branch branch) throws SQLException {
+        return executeTransaction(session -> {
+            Query query = session.createQuery("from Book b where b.branch = :branch and b.category = :category");
+            query.setParameter("branch", branch);
+            query.setParameter("category", category);
+            List<Book> books= query.getResultList();
+            return books;
+
+        });
     }
 }

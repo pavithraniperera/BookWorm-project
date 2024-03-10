@@ -42,6 +42,7 @@ public class UserLoginFormController {
 
     @FXML
     private TextField txtUserName;
+    public static int userId;
     private UserBo userBo = new UserBoImpl();
 
     @FXML
@@ -94,8 +95,8 @@ public class UserLoginFormController {
             List<UserDto> userDtos = userBo.getAllUsers();
             for (UserDto dto : userDtos){
                 if (dto.getEmail().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
+                    userId = dto.getUserId();
                     AnchorPane anchorPane = null;
-
                     try {
                         anchorPane = FXMLLoader.load(getClass().getResource("/view/User_view/User_dashboard_form.fxml"));
                         Scene scene = new Scene(anchorPane);

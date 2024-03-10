@@ -19,6 +19,13 @@ private String branch;
         this.branch = branch;
     }
 
+    public ManageBookTm(String title, String author, String status, String category) {
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.status = status;
+    }
+
     public String getTitle() {
         return title;
     }

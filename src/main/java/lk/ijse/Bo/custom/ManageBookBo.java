@@ -15,4 +15,8 @@ public interface ManageBookBo {
     void deleteBook(int id) throws SQLException;
 
     void updateBook(BookDto bookDto) throws SQLException;
+
+    List<BookDto> getBookByBranch(String branchName) throws SQLException;
+
+    List<BookDto> getBookByCategory(String category, String branchName) throws SQLException;
 }

@@ -1,6 +1,7 @@
 package lk.ijse.entity;
 
 import jakarta.persistence.*;
+import lk.ijse.Bo.custom.BranchBo;
 
 import java.util.List;
 @Entity
@@ -14,6 +15,9 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
+
+    @ManyToOne
+    private Branch branch;
 
     @ManyToMany
     @JoinTable(
@@ -34,10 +38,11 @@ public class User {
         this.bookList = bookList;
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password,Branch branch) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.branch = branch;
     }
 
     public User(int userId, String name, String email, String password) {
@@ -46,6 +51,8 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+
 
     public int getUserId() {
         return userId;
@@ -87,14 +94,22 @@ public class User {
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
     }
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId='" + userId + '\'' +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", branch=" + branch +
                 ", bookList=" + bookList +
                 '}';
     }
