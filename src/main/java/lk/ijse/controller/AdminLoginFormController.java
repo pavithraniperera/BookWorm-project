@@ -66,7 +66,7 @@ public class AdminLoginFormController {
         String pw1 = showTextPw.getText();
         try {
             List<AdminDto> adminDtoList = adminBo.getAllAdmins();
-            for (AdminDto dto : adminDtoList){
+           L: for (AdminDto dto : adminDtoList){
                 if (dto.getUserName().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
                     AnchorPane anchorPane = null;
                     try {
@@ -80,13 +80,15 @@ public class AdminLoginFormController {
                         throw new RuntimeException(e);
                     }
                     new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
+                    break L;
 
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR,"your Login details are incorrect").show();
+                    break L;
                 }
             }
-            //System.out.println(adminDtoList);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

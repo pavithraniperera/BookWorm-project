@@ -11,16 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
 import lk.ijse.Bo.custom.BranchBo;
 import lk.ijse.Bo.custom.UserBo;
-import lk.ijse.Tm.ManageBookTm;
 import lk.ijse.dto.BranchDto;
 import lk.ijse.dto.UserDto;
-import lk.ijse.entity.Branch;
 import lk.ijse.regex.RegexPattern;
 
 import java.io.IOException;

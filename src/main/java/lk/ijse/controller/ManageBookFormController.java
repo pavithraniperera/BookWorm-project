@@ -8,10 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
-import lk.ijse.Bo.custom.Boimpl.ManageBookBoImpl;
+import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.BranchBo;
-import lk.ijse.Bo.custom.ManageBookBo;
-import lk.ijse.Tm.ManageBookTm;
+import lk.ijse.Bo.custom.BookBo;
+import lk.ijse.Tm.BookTm;
 import lk.ijse.dto.BookDto;
 import lk.ijse.dto.BranchDto;
 import lk.ijse.regex.RegexPattern;
@@ -51,7 +51,7 @@ public class ManageBookFormController {
 
 
     @FXML
-    private TableView<ManageBookTm> tblBook;
+    private TableView<BookTm> tblBook;
 
     @FXML
     private TextField txtAuthor;
@@ -62,7 +62,7 @@ public class ManageBookFormController {
     @FXML
     private TextField txtTitle;
     private  int id;
-    private ManageBookBo manageBookBo = new ManageBookBoImpl();
+    private BookBo bookBo = new BookBoImpl();
     private BranchBo branchBo = new BranchBoImpl();
     public void initialize(){
         setBranches();
@@ -87,14 +87,14 @@ public class ManageBookFormController {
         });
     }
 
-    private void setData(ManageBookTm newValue) {
+    private void setData(BookTm newValue) {
         txtGenere.setText(newValue.getCategory());
         txtAuthor.setText(newValue.getAuthor());
         txtTitle.setText(newValue.getTitle());
         cmbAvalability.setValue(newValue.getStatus());
         cmbBranch.setValue(newValue.getBranch());
         try {
-            id = manageBookBo.getBook(txtTitle.getText()).getBookId();
+            id = bookBo.getBook(txtTitle.getText()).getBookId();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -106,7 +106,7 @@ public class ManageBookFormController {
         if (validation()){
             try {
                 BranchDto branchDto = branchBo.getBranch(cmbBranch.getValue());
-                manageBookBo.saveBook(new BookDto(txtTitle.getText(),txtAuthor.getText(),txtGenere.getText(),  cmbAvalability.getValue(), branchDto.getBranchId()));
+                bookBo.saveBook(new BookDto(txtTitle.getText(),txtAuthor.getText(),txtGenere.getText(),  cmbAvalability.getValue(), branchDto.getBranchId()));
                 new Alert(Alert.AlertType.CONFIRMATION,"New Book Added").show();
                 loadAllBooks();
                 tblBook.refresh();
@@ -123,7 +123,7 @@ public class ManageBookFormController {
     void btnDeleteOnAction(ActionEvent event) {
 
         try {
-            manageBookBo.deleteBook(id);
+            bookBo.deleteBook(id);
             new Alert(Alert.AlertType.CONFIRMATION,"Book deleted").show();
             loadAllBooks();
             tblBook.refresh();
@@ -138,7 +138,7 @@ public class ManageBookFormController {
         if (validation()){
             try {
                 int branchId = branchBo.getBranch(cmbBranch.getValue()).getBranchId();
-                manageBookBo.updateBook(new BookDto(id,txtTitle.getText(),txtAuthor.getText(),txtGenere.getText(),cmbAvalability.getValue(),branchId));
+                bookBo.updateBook(new BookDto(id,txtTitle.getText(),txtAuthor.getText(),txtGenere.getText(),cmbAvalability.getValue(),branchId));
                 loadAllBooks();
                 tblBook.refresh();
             } catch (SQLException e) {
@@ -185,12 +185,12 @@ public class ManageBookFormController {
 
     }
     public void loadAllBooks(){
-        ObservableList<ManageBookTm> observableList = FXCollections.observableArrayList();
+        ObservableList<BookTm> observableList = FXCollections.observableArrayList();
         try {
-            List<BookDto> bookDtos = manageBookBo.getAllBook();
+            List<BookDto> bookDtos = bookBo.getAllBook();
             for (BookDto bookDto :bookDtos){
                 BranchDto dto = branchBo.getBranchById(bookDto.getBranchId());
-                observableList.add(new ManageBookTm(bookDto.getTitle(), bookDto.getAuthor(), bookDto.getCategory(), bookDto.getAvailability(), dto.getBranchName()));
+                observableList.add(new BookTm(bookDto.getTitle(), bookDto.getAuthor(), bookDto.getCategory(), bookDto.getAvailability(), dto.getBranchName()));
             }
           tblBook.getItems().clear();
             tblBook.setItems(observableList);

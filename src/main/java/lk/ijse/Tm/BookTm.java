@@ -1,6 +1,8 @@
 package lk.ijse.Tm;
 
-public class ManageBookTm {
+import com.jfoenix.controls.JFXButton;
+
+public class BookTm {
 private String title;
 private String author;
 private String category;
@@ -8,10 +10,19 @@ private String category;
 private String status;
 private String branch;
 
-    public ManageBookTm() {
+private JFXButton button;
+
+    public BookTm(String title, String author, String category, JFXButton button) {
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.button = button;
     }
 
-    public ManageBookTm(String title, String author, String category, String status, String branch) {
+    public BookTm() {
+    }
+
+    public BookTm(String title, String author, String category, String status, String branch) {
         this.title = title;
         this.author = author;
         this.category = category;
@@ -19,7 +30,7 @@ private String branch;
         this.branch = branch;
     }
 
-    public ManageBookTm(String title, String author, String status, String category) {
+    public BookTm(String title, String author, String status, String category) {
         this.title = title;
         this.author = author;
         this.category = category;
@@ -64,6 +75,13 @@ private String branch;
 
     public void setBranch(String branch) {
         this.branch = branch;
+    }
+    public JFXButton getButton() {
+        return button;
+    }
+
+    public void setButton(JFXButton button) {
+        this.button = button;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package lk.ijse.Dao.custom.daoImpl;
 
 import lk.ijse.Dao.BaseDao;
-import lk.ijse.Dao.custom.ManageBookDao;
+import lk.ijse.Dao.custom.BookDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Branch;
 import org.hibernate.query.Query;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import static lk.ijse.Dao.BaseDao.executeTransaction;
 
-public class ManageBookDaoImpl implements ManageBookDao {
+public class BookDaoImpl implements BookDao {
     @Override
     public void save(Book entity) throws SQLException {
         BaseDao.executeTransaction(session -> session.save(entity));

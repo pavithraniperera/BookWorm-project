@@ -66,8 +66,9 @@ public class BookPopupCardFormController {
            lblStatus.setText(dto.getAvailability());
            lblCategory.setText(dto.getCategory());
            if (dto.getAvailability().equals("Unavailable")){
-               btnBorrow.setDisable(false);
                new Alert(Alert.AlertType.INFORMATION,"Sorry "+lblBookname.getText() + " is Currently Unavailable").show();
+               btnBorrow.setDisable(true);
+
            }
     }
 }

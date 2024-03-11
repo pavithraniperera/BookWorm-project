@@ -20,12 +20,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
-import lk.ijse.Bo.custom.Boimpl.ManageBookBoImpl;
+import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
 import lk.ijse.Bo.custom.BranchBo;
-import lk.ijse.Bo.custom.ManageBookBo;
+import lk.ijse.Bo.custom.BookBo;
 import lk.ijse.Bo.custom.UserBo;
-import lk.ijse.Tm.ManageBookTm;
+import lk.ijse.Tm.BookTm;
 import lk.ijse.dto.BookDto;
 
 import java.io.IOException;
@@ -74,20 +74,20 @@ public class UserDashboardFormController {
     private ImageView imgUsername;
 
     @FXML
-    private TableView<ManageBookTm> tblDashboardBook;
+    private TableView<BookTm> tblDashboardBook;
 
     @FXML
     private TextField txtSearchBook;
     private int userId;
     private String branchName;
     private UserBo userBo = new UserBoImpl();
-    private ManageBookBo bookBo = new ManageBookBoImpl();
+    private BookBo bookBo = new BookBoImpl();
     private BranchBo branchBo = new BranchBoImpl();
-    private  ObservableList<ManageBookTm> observableList = FXCollections.observableArrayList();
-    private   ObservableList<ManageBookTm> filteredCategoryList = FXCollections.observableArrayList();
-    private   ObservableList<ManageBookTm> filteredyList = FXCollections.observableArrayList();
+    private  ObservableList<BookTm> observableList = FXCollections.observableArrayList();
+    private   ObservableList<BookTm> filteredCategoryList = FXCollections.observableArrayList();
+    private   ObservableList<BookTm> filteredyList = FXCollections.observableArrayList();
 
-    private List<BookDto> bookDtos;
+    public static List<BookDto> bookDtos;
     public void initialize(){
         setCellValueFactory();
         setUserId();
@@ -123,7 +123,7 @@ public class UserDashboardFormController {
         try {
             bookDtos = bookBo.getBookByBranch(branchName);
             for (BookDto dto : bookDtos){
-                observableList.add(new ManageBookTm(dto.getTitle(), dto.getAuthor(), dto.getAvailability(), dto.getCategory()));
+                observableList.add(new BookTm(dto.getTitle(), dto.getAuthor(), dto.getAvailability(), dto.getCategory()));
             }
             tblDashboardBook.getItems().clear();
             tblDashboardBook.setItems(observableList);
@@ -209,7 +209,7 @@ public class UserDashboardFormController {
             filteredyList.addAll(observableList);
         } else {
             filteredyList.clear();
-            for (ManageBookTm tm : observableList) {
+            for (BookTm tm : observableList) {
                 if (tm.getStatus().equals("Available")) { // Filter based on availability
                     filteredyList.add(tm);
                 }
@@ -221,19 +221,7 @@ public class UserDashboardFormController {
 
     @FXML
     void cmbCategoryOnAction(ActionEvent event) {
-      /*  String selectedCategory = cmbCategory.getValue();
 
-        List<BookDto> bookDtos1 = null;
-        try {
-            bookDtos1 = bookBo.getBookByCategory(selectedCategory,branchName);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        for (BookDto dto : bookDtos1) {
-            observableList.add(new ManageBookTm(dto.getTitle(), dto.getAuthor(), dto.getAvailability(), dto.getCategory()));
-        }
-        tblDashboardBook.getItems().clear();
-        tblDashboardBook.setItems(observableList);*/
         String selectedCategory = cmbCategory.getValue();
 
         if (selectedCategory.equals("All")) { // Display all books if "All" is selected
@@ -241,7 +229,7 @@ public class UserDashboardFormController {
         } else {
             System.out.println(observableList);
             filteredCategoryList.clear(); // Clear existing filtered data
-            for (ManageBookTm tm : observableList) {
+            for (BookTm tm : observableList) {
                 if (tm.getCategory().equals(selectedCategory)) {
                     filteredCategoryList.add(tm); // Add books matching the selected category
                 }
@@ -296,7 +284,7 @@ public class UserDashboardFormController {
                 newStage.setScene(scene);
 
                 // Set additional properties for the new stage if needed
-                newStage.setTitle("New Stage");
+                newStage.setTitle("Detail");
 
                 // Show the new stage
                 newStage.show();

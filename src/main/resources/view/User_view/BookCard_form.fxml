@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import java.net.URL?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="206.0" prefWidth="955.0" styleClass="anchor-pane-with-background3" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BookCardFormController">
+<AnchorPane prefHeight="206.0" prefWidth="955.0" styleClass="anchor-pane-with-background3" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BookCardFormController">
    <stylesheets>
       <URL value="@../../styles/Dashboard.css" />
       <URL value="@../../styles/Login.css" />
    </stylesheets>
    <children>
-      <Label layoutX="69.0" layoutY="33.0" prefHeight="33.0" prefWidth="141.0" text="Book name :">
+      <Label layoutX="69.0" layoutY="33.0" prefHeight="33.0" prefWidth="141.0" text="Book name :" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="513.0" layoutY="76.0" prefHeight="33.0" prefWidth="105.0" text="Due Date :">
+      <Label layoutX="528.0" layoutY="76.0" prefHeight="33.0" prefWidth="105.0" text="Due Date :" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="76.0" prefHeight="33.0" prefWidth="124.0" text="Borrow Date :">
+      <Label layoutX="69.0" layoutY="76.0" prefHeight="33.0" prefWidth="124.0" text="Borrow Date :" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="17.0" />
          </font>
@@ -32,27 +32,27 @@
             <Font name="DejaVu Serif Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblBookname" layoutX="200.0" layoutY="34.0" prefHeight="33.0" prefWidth="338.0" text="Harrie Porter">
+      <Label fx:id="lblBookname" layoutX="200.0" layoutY="34.0" prefHeight="33.0" prefWidth="338.0" text="Harrie Porter" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblBorrowDate" layoutX="219.0" layoutY="76.0" prefHeight="33.0" prefWidth="147.0" text="2024-01-02">
+      <Label fx:id="lblBorrowDate" layoutX="219.0" layoutY="76.0" prefHeight="33.0" prefWidth="237.0" text="2024-01-02" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDueDate" layoutX="623.0" layoutY="76.0" prefHeight="33.0" prefWidth="323.0" text="2024-02-02" textFill="#bf1818">
+      <Label fx:id="lblDueDate" layoutX="638.0" layoutY="76.0" prefHeight="33.0" prefWidth="323.0" text="2024-02-02" textFill="#bf1818">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="513.0" layoutY="33.0" prefHeight="33.0" prefWidth="98.0" text="Category:">
+      <Label layoutX="531.0" layoutY="33.0" prefHeight="33.0" prefWidth="98.0" text="Category:" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblCategory" layoutX="616.0" layoutY="34.0" prefHeight="33.0" prefWidth="185.0" text="Harrie Porter">
+      <Label fx:id="lblCategory" layoutX="634.0" layoutY="34.0" prefHeight="33.0" prefWidth="185.0" text="Harrie Porter">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="18.0" />
          </font>

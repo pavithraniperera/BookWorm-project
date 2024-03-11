@@ -7,7 +7,7 @@ import lk.ijse.entity.Branch;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ManageBookDao extends CrudDao<Book> {
+public interface BookDao extends CrudDao<Book> {
 
 
     List<Book> getBookByBranch(Branch branch) throws SQLException;

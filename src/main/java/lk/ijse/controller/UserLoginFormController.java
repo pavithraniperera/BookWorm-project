@@ -93,7 +93,7 @@ public class UserLoginFormController {
         String pw1 = showTextPw.getText();
         try {
             List<UserDto> userDtos = userBo.getAllUsers();
-            for (UserDto dto : userDtos){
+            L:for (UserDto dto : userDtos){
                 if (dto.getEmail().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
                     userId = dto.getUserId();
                     AnchorPane anchorPane = null;
@@ -108,11 +108,12 @@ public class UserLoginFormController {
                         throw new RuntimeException(e);
                     }
                     new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
-                    break;
+                    break L;
 
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR,"your Login details are incorrect").show();
+                    break L;
                 }
             }
         } catch (SQLException e) {

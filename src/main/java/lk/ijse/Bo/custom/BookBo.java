@@ -5,7 +5,7 @@ import lk.ijse.dto.BookDto;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ManageBookBo {
+public interface BookBo {
     void saveBook(BookDto bookDto) throws SQLException;
 
     List<BookDto> getAllBook() throws SQLException;

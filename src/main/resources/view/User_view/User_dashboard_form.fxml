@@ -71,7 +71,7 @@
             </Label>
             <TextField fx:id="txtSearchBook" layoutX="750.0" layoutY="61.0" onAction="#txtSearchOnAction" prefHeight="41.0" prefWidth="370.0" promptText="           Search Book by name">
                <font>
-                  <Font size="15.0" />
+                  <Font name="DejaVu Sans Bold" size="15.0" />
                </font>
             </TextField>
             <ImageView fx:id="img1" fitHeight="40.0" fitWidth="40.0" layoutX="766.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
@@ -92,7 +92,7 @@
                   <String fx:value="table-view" />
                </styleClass>
             </TableView>
-            <CheckBox fx:id="CheckboxFilter" layoutX="130.0" layoutY="128.0" mnemonicParsing="false" onAction="#checkBoxFilterOnAction" prefHeight="30.0" prefWidth="272.0" text="Only Available Books">
+            <CheckBox fx:id="CheckboxFilter" layoutX="130.0" layoutY="128.0" mnemonicParsing="false" onAction="#checkBoxFilterOnAction" prefHeight="30.0" prefWidth="272.0" text="Only Available Books" textFill="#ae3636">
                <font>
                   <Font name="DejaVu Sans" size="16.0" />
                </font>
