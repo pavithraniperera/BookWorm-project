@@ -84,31 +84,7 @@ public class BookCardFormController {
     }
     @Transactional
     private void updateBookAndTransaction(BookDto dto1, TransactionDto dto) {
-      /*  Session session = FactoryConfiguration.getInstance().getSession();
 
-        if (dto!=null){
-            try {
-                Transaction transaction = session.beginTransaction();
-                boolean isUpdated =   transactionBo.update(dto,session);
-                if (isUpdated){
-                    boolean update =bookBo.updateBook(dto1,session);
-                    if (update) {
-                        transaction.commit();
-                       new Alert(Alert.AlertType.INFORMATION,"Book is Returned successfully").show();
-                    }
-                }else {
-                    transaction.rollback();
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            finally {
-                session.close();
-            }
-
-        }else{
-            System.out.println("no");
-        }*/
         if (dto != null) {
 
             BookDto bookDto = null;

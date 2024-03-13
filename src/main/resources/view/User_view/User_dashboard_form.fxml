@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import java.lang.String?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1239.0" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserDashboardFormController">
+<AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1239.0" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserDashboardFormController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="85.0" prefWidth="1245.0" styleClass="anchor-pane-with-background-color">
          <effect>
@@ -54,7 +48,7 @@
                   <InnerShadow />
                </effect>
             </ImageView>
-            <Label layoutX="1048.0" layoutY="56.0" prefHeight="16.0" prefWidth="119.0" text="User Name" textFill="#1e0000">
+            <Label fx:id="lblName" layoutX="1048.0" layoutY="56.0" prefHeight="16.0" prefWidth="119.0" text="User Name" textFill="#1e0000">
                <font>
                   <Font name="DejaVuMathTeXGyre-Regular" size="14.0" />
                </font>

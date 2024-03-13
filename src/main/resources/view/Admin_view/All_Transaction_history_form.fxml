@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="792.0" prefWidth="1239.0" styleClass="anchor-pane-with-background" stylesheets="@../../styles/Dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AllTransactionHistoryFormController">
    <children>
       <Label layoutX="359.0" layoutY="46.0" prefHeight="51.0" prefWidth="431.0" text="Transaction History" textFill="#ab8259">
@@ -31,10 +30,10 @@
           <TableColumn fx:id="colTransactionId" prefWidth="143.0" text="Transaction Id" />
           <TableColumn fx:id="ColBookId" prefWidth="132.0" text="Book Id" />
             <TableColumn fx:id="ColBookName" prefWidth="197.0" text="Book name" />
-            <TableColumn fx:id="colUserId" prefWidth="140.0" text="User Id" />
+            <TableColumn fx:id="colUserId" prefWidth="140.0" text="User Name" />
             <TableColumn fx:id="colBranchId" prefWidth="150.0" text="Branch Id" />
-            <TableColumn fx:id="colType" prefWidth="163.0" text="Transaction Type" />
-            <TableColumn fx:id="colDate" prefWidth="144.0" text="Date" />
+            <TableColumn fx:id="colType" prefWidth="163.0" text="Borrow Date" />
+            <TableColumn fx:id="colDate" prefWidth="144.0" text="Return Date" />
         </columns>
          <styleClass>
             <String fx:value="table-row-cell" />

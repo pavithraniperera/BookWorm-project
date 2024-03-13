@@ -149,31 +149,8 @@ public class BorrowBookFormController {
     }
     @Transactional
     private void borrowBook() {
-        /*Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        if (txtBookTitle.getText()!=null){
-            var dto = new  TransactionDto(userId,txtBookTitle.getText(),LocalDate.now(),lblDueDate.getText(),false);
-            try {
-                boolean isSave=  transactionBo.saveTransactiondata(userId,txtBookTitle.getText(),dto,session);
-                if (isSave){
-                    BookDto bookDto = bookBo.getBook(txtBookTitle.getText());
-                    bookDto.setAvailability("Unavailable");
-                    boolean isUpdate = bookBo.updateBook(bookDto,session);
-                    if (isUpdate){
-                        transaction.commit();
-                        new Alert(Alert.AlertType.CONFIRMATION,"Your book Borrow process is successful").show();
-                    }
-                }else {
-                    transaction.rollback();
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }finally {
-                session.close();
-            }
 
-        }
-*/          String bookTitle = txtBookTitle.getText() ;
+       String bookTitle = txtBookTitle.getText() ;
             if (bookTitle != null) {
                 TransactionDto dto = new TransactionDto(userId, bookTitle, LocalDate.now(), lblDueDate.getText(), false);
                  // Assuming no return type for saveTransactiondata

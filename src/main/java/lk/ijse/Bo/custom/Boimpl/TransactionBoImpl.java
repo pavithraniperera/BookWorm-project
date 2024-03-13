@@ -11,7 +11,6 @@ import lk.ijse.dto.TransactionDto;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Transaction;
 import lk.ijse.entity.User;
-import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -63,5 +62,38 @@ public class TransactionBoImpl implements TransactionBo {
         User user = userDao.getbyId(transactionDto.getUserId());
         Book book = bookDao.get(transactionDto.getBookId());
         return   transactionDao.update(new Transaction(transactionDto.getId(),user,book,transactionDto.getBorrowed(),transactionDto.getDueDate(),transactionDto.getReturnedDate(),transactionDto.getReturn()));
+    }
+
+    @Override
+    public List<TransactionDto> getAll() throws SQLException {
+        List<TransactionDto> dtoList = new ArrayList<>();
+        List<Transaction> transactions = transactionDao.getAll();
+        for (Transaction transaction : transactions){
+            dtoList.add(new TransactionDto(transaction.getId(), transaction.getUser().getUserId(),transaction.getUser().getName(),transaction.getBook().getBranchId().getBranchName(),transaction.getBook().getBookId(),transaction.getBook().getTitle(),transaction.getBorrowed(),transaction.getDueDate(),transaction.getReturnedDate(),transaction.getReturn()));
+        }
+        return dtoList;
+    }
+
+    @Override
+    public List<TransactionDto> getOverDue() throws SQLException {
+        List<Transaction> transactionList = transactionDao.getOverDue();
+        List<TransactionDto> dtos = new ArrayList<>();
+        for (Transaction transaction : transactionList){
+            dtos.add(new TransactionDto(transaction.getUser().getName(),transaction.getBook().getTitle(),transaction.getUser().getBranch().getBranchName(),transaction.getDueDate()));
+
+        }
+
+        return dtos;
+    }
+
+    @Override
+    public List<TransactionDto> getByUser(int userId) throws SQLException {
+        List<TransactionDto> dtoList = new ArrayList<>();
+        User user = userDao.getbyId(userId);
+        List<Transaction> transactions = transactionDao.getAllByUser(user);
+        for (Transaction transaction : transactions){
+            dtoList.add(new TransactionDto(transaction.getId(), transaction.getUser().getUserId(),transaction.getUser().getName(),transaction.getBook().getBranchId().getBranchName(),transaction.getBook().getBookId(),transaction.getBook().getTitle(),transaction.getBorrowed(),transaction.getDueDate(),transaction.getReturnedDate(),transaction.getReturn()));
+        }
+        return dtoList;
     }
 }

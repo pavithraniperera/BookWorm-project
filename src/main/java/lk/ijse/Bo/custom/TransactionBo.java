@@ -1,7 +1,6 @@
 package lk.ijse.Bo.custom;
 
 import lk.ijse.dto.TransactionDto;
-import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,4 +16,10 @@ public interface TransactionBo {
     void saveTransactiondata(int userId, String bookTitle, TransactionDto dto) throws SQLException;
 
     boolean update(TransactionDto dto) throws SQLException;
+
+    List<TransactionDto> getAll() throws SQLException;
+
+    List<TransactionDto> getOverDue() throws SQLException;
+
+    List<TransactionDto> getByUser(int userId) throws SQLException;
 }

@@ -1,10 +1,10 @@
 package lk.ijse.Dao.custom.daoImpl;
 
+import lk.ijse.Dao.BaseDao;
 import lk.ijse.Dao.custom.TransactionDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Transaction;
 import lk.ijse.entity.User;
-import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.sql.SQLException;
@@ -65,5 +65,33 @@ public class TransactionDaoImpl implements TransactionDao {
             return false;
         });
 
+    }
+
+    @Override
+    public List<Transaction> getAll() throws SQLException {
+        return   BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Transaction ");
+            return query.getResultList();
+
+        });
+    }
+
+    @Override
+    public List<Transaction> getOverDue() throws SQLException {
+        return BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Transaction where isReturn=:isreturn and dueDate<CURRENT_TIMESTAMP");
+            query.setParameter("isreturn", false);
+            return query.getResultList();
+        });
+    }
+
+    @Override
+    public List<Transaction> getAllByUser(User user) throws SQLException {
+        return   BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Transaction where user=:user");
+            query.setParameter("user",user);
+            return query.getResultList();
+
+        });
     }
 }

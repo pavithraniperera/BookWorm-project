@@ -8,11 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -27,6 +23,7 @@ import lk.ijse.Bo.custom.BookBo;
 import lk.ijse.Bo.custom.UserBo;
 import lk.ijse.Tm.BookTm;
 import lk.ijse.dto.BookDto;
+import lk.ijse.dto.UserDto;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -39,6 +36,7 @@ public class UserDashboardFormController {
     public AnchorPane pane2;
     public AnchorPane root;
     public ImageView img1;
+    public Label lblName;
     @FXML
     private CheckBox CheckboxFilter;
 
@@ -87,6 +85,7 @@ public class UserDashboardFormController {
     private   ObservableList<BookTm> filteredCategoryList = FXCollections.observableArrayList();
     private   ObservableList<BookTm> filteredyList = FXCollections.observableArrayList();
 
+
     public static List<BookDto> bookDtos;
     public void initialize(){
         setCellValueFactory();
@@ -94,6 +93,18 @@ public class UserDashboardFormController {
         textFieldFocus();
         loadAllBooks();
         setComboBoxValue();
+        setUserName();
+
+    }
+
+    private void setUserName() {
+        try {
+            UserDto dto = userBo.getUserById(userId);
+            lblName.setText(dto.getName());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setComboBoxValue() {
