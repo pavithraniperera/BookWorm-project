@@ -1,6 +1,7 @@
 package lk.ijse.Bo.custom;
 
 import lk.ijse.dto.BookDto;
+import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,4 +20,6 @@ public interface BookBo {
     List<BookDto> getBookByBranch(String branchName) throws SQLException;
 
     List<BookDto> getBookByCategory(String category, String branchName) throws SQLException;
+
+
 }

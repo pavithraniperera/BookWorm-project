@@ -4,6 +4,7 @@ import lk.ijse.Dao.BaseDao;
 import lk.ijse.Dao.custom.BookDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Branch;
+import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.sql.SQLException;
@@ -92,4 +93,6 @@ public class BookDaoImpl implements BookDao {
 
         });
     }
+
+
 }

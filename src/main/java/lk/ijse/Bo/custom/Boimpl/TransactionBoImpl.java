@@ -11,6 +11,7 @@ import lk.ijse.dto.TransactionDto;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Transaction;
 import lk.ijse.entity.User;
+import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,16 +21,6 @@ public class TransactionBoImpl implements TransactionBo {
     private TransactionDao transactionDao = new TransactionDaoImpl();
     private UserDao userDao = new UserDaoImpl();
     private BookDao bookDao = new BookDaoImpl();
-    @Override
-    public boolean saveTransactiondata(int userId, String bookName, TransactionDto dto) throws SQLException {
-        User user = userDao.getbyId(userId);
-        Book book = bookDao.get(bookName);
-        if (user!=null && book!=null){
-            return transactionDao.save(new Transaction(user,book,dto.getBorrowed(),dto.getDueDate(),dto.getReturn()));
-        }
-
-        return false;
-    }
 
     @Override
     public List<TransactionDto> getUnreturned(int userId) throws SQLException {
@@ -41,5 +32,36 @@ public class TransactionBoImpl implements TransactionBo {
         }
         return dtos;
 
+    }
+
+    @Override
+    public TransactionDto gettransactionByBookUser(String bookId, int userId) throws SQLException {
+        User user = userDao.getbyId(userId);
+        Book book = bookDao.get(bookId);
+        TransactionDto transactionDto = null;
+        List<Transaction> byBookUser = transactionDao.getByBookUser(user, book);
+        for (Transaction transaction : byBookUser){
+            transactionDto = new TransactionDto(transaction.getId(), transaction.getUser().getUserId(),transaction.getBook().getTitle(),transaction.getBorrowed(),transaction.getDueDate(),transaction.getReturnedDate(),transaction.getReturn());
+        }
+        return transactionDto;
+    }
+
+    @Override
+    public void saveTransactiondata(int userId, String bookTitle, TransactionDto dto) throws SQLException{
+        User user = userDao.getbyId(userId);
+        Book book = bookDao.get(bookTitle);
+        if (user!=null && book!=null){
+            transactionDao.save(new Transaction(user,book,dto.getBorrowed(),dto.getDueDate(),dto.getReturn()));
+        }
+
+
+
+    }
+
+    @Override
+    public boolean update(TransactionDto transactionDto) throws SQLException {
+        User user = userDao.getbyId(transactionDto.getUserId());
+        Book book = bookDao.get(transactionDto.getBookId());
+        return   transactionDao.update(new Transaction(transactionDto.getId(),user,book,transactionDto.getBorrowed(),transactionDto.getDueDate(),transactionDto.getReturnedDate(),transactionDto.getReturn()));
     }
 }

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class TransactionDto {
+  private int id;
   private int userId;
   private String bookname;
   private LocalDateTime borrowed;
@@ -30,6 +31,15 @@ public class TransactionDto {
     this.isReturn = isReturn;
   }
 
+  public TransactionDto(int id, int userId, String title, LocalDateTime borrowed, LocalDate dueDate, LocalDateTime returnedDate, Boolean aReturn) {
+    this.id = id;
+    this.userId = userId;
+    this.bookname = title;
+    this.borrowed = borrowed;
+    this.dueDate = dueDate;
+    this.returnedDate = returnedDate;
+    this.isReturn = aReturn;
+  }
 
 
   public int getUserId() {
@@ -83,8 +93,9 @@ public class TransactionDto {
   @Override
   public String toString() {
     return "TransactionDto{" +
-            "userId='" + userId + '\'' +
-            ", bookId='" + bookname + '\'' +
+            "id=" + id +
+            ", userId=" + userId +
+            ", bookname='" + bookname + '\'' +
             ", borrowed=" + borrowed +
             ", dueDate=" + dueDate +
             ", returnedDate=" + returnedDate +
@@ -92,4 +103,11 @@ public class TransactionDto {
             '}';
   }
 
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 }

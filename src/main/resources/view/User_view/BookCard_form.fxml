@@ -52,7 +52,7 @@
             <Font name="DejaVuMathTeXGyre-Regular" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblCategory" layoutX="634.0" layoutY="34.0" prefHeight="33.0" prefWidth="185.0" text="Harrie Porter">
+      <Label fx:id="lblCategory" layoutX="634.0" layoutY="34.0" prefHeight="33.0" prefWidth="185.0" text="Harrie Porter" textFill="#360b0b">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="18.0" />
          </font>

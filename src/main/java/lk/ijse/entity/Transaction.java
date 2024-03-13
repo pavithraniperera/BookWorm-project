@@ -46,6 +46,15 @@ public class Transaction {
         this.isReturn = aReturn;
     }
 
+    public Transaction(User user, Book book, LocalDateTime borrowed, LocalDate dueDate, LocalDateTime returnedDate, Boolean aReturn) {
+        this.user = user;
+        this.book = book;
+        this.borrowed = borrowed;
+        this.returnedDate = returnedDate;
+        this.dueDate = dueDate;
+        this.isReturn = aReturn;
+    }
+
     public int getId() {
         return id;
     }
