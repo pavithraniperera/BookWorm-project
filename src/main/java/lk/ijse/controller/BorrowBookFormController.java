@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
+import jakarta.transaction.Transactional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,12 +17,16 @@ import lk.ijse.Bo.custom.BookBo;
 import lk.ijse.Bo.custom.TransactionBo;
 import lk.ijse.Bo.custom.UserBo;
 import lk.ijse.Tm.BookTm;
+import lk.ijse.config.FactoryConfiguration;
 import lk.ijse.dto.BookDto;
 import lk.ijse.dto.TransactionDto;
 import lk.ijse.dto.UserDto;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static lk.ijse.controller.UserDashboardFormController.bookDtos;
 import static lk.ijse.controller.UserLoginFormController.userId;
@@ -121,24 +126,69 @@ public class BorrowBookFormController {
 
     @FXML
     void btnBorrowOnAction(ActionEvent event) {
-        try {
 
-            if (txtBookTitle.getText() != null){
-                var dto = new  TransactionDto(userId,txtBookTitle.getText(),LocalDate.now(),lblDueDate.getText(),false);
+        if (txtBookTitle.getText()!=null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Do you want to Borrow " + txtBookTitle.getText() + " book");
+            alert.setContentText("Choose your option.");
 
-              boolean isSave=  transactionBo.saveTransactiondata(userId,txtBookTitle.getText(),dto);
-              if (isSave){
-                 BookDto bookDto = bookBo.getBook(txtBookTitle.getText());
-                 bookDto.setAvailability("Unavailable");
-                 bookBo.updateBook(bookDto);
-                 new Alert(Alert.AlertType.CONFIRMATION,"Your book Borrow process is successful").show();
-              }
-            }else {
-                new Alert(Alert.AlertType.INFORMATION,"Please select a book to borrow").show();
+            ButtonType yesButton = new ButtonType("Yes");
+            ButtonType noButton = new ButtonType("No");
+
+            alert.getButtonTypes().setAll(yesButton, noButton);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == yesButton) {
+
+                borrowBook();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        }else{
+            new Alert(Alert.AlertType.INFORMATION,"please select a book").show();
         }
+
+    }
+    @Transactional
+    private void borrowBook() {
+        /*Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        if (txtBookTitle.getText()!=null){
+            var dto = new  TransactionDto(userId,txtBookTitle.getText(),LocalDate.now(),lblDueDate.getText(),false);
+            try {
+                boolean isSave=  transactionBo.saveTransactiondata(userId,txtBookTitle.getText(),dto,session);
+                if (isSave){
+                    BookDto bookDto = bookBo.getBook(txtBookTitle.getText());
+                    bookDto.setAvailability("Unavailable");
+                    boolean isUpdate = bookBo.updateBook(bookDto,session);
+                    if (isUpdate){
+                        transaction.commit();
+                        new Alert(Alert.AlertType.CONFIRMATION,"Your book Borrow process is successful").show();
+                    }
+                }else {
+                    transaction.rollback();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }finally {
+                session.close();
+            }
+
+        }
+*/          String bookTitle = txtBookTitle.getText() ;
+            if (bookTitle != null) {
+                TransactionDto dto = new TransactionDto(userId, bookTitle, LocalDate.now(), lblDueDate.getText(), false);
+                 // Assuming no return type for saveTransactiondata
+                BookDto bookDto = null;
+                try {
+                    transactionBo.saveTransactiondata(userId, bookTitle, dto);
+                    bookDto = bookBo.getBook(bookTitle);
+                    bookDto.setAvailability("Unavailable");
+                    bookBo.updateBook(bookDto);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+               // Assuming no return type for updateBook
+                new Alert(Alert.AlertType.CONFIRMATION, "Your book Borrow process is successful").show();
+            }
 
     }
 
