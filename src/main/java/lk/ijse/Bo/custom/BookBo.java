@@ -1,12 +1,13 @@
 package lk.ijse.Bo.custom;
 
+import lk.ijse.Bo.SuperBo;
 import lk.ijse.dto.BookDto;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface BookBo {
+public interface BookBo extends SuperBo {
     void saveBook(BookDto bookDto) throws SQLException;
 
     List<BookDto> getAllBook() throws SQLException;

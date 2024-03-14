@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.Boimpl.TransactionBoImpl;
 import lk.ijse.Bo.custom.BookBo;
@@ -44,8 +45,8 @@ public class BookCardFormController {
     @FXML
     private Label lblDueDate;
     private MyLibraryFormController libraryFormController;
-    private BookBo bookBo = new BookBoImpl();
-    private TransactionBo transactionBo = new TransactionBoImpl();
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
     private TransactionDto transactionDto ;
 
     @FXML

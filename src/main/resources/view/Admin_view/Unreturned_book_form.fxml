@@ -20,7 +20,7 @@
       </Label>
       <TableView fx:id="tblOverdueBooks" layoutX="211.0" layoutY="191.0" prefHeight="379.0" prefWidth="743.0">
         <columns>
-          <TableColumn fx:id="colEmail" prefWidth="186.0" text="Borrower Email" />
+          <TableColumn fx:id="colEmail" prefWidth="186.0" text="Borrower Name" />
           <TableColumn fx:id="colBook" prefWidth="222.0" text="Book name" />
             <TableColumn fx:id="colDate" prefWidth="196.0" text="Due date" />
             <TableColumn fx:id="colOverdueDays" prefWidth="138.0" text="Days overdue" />

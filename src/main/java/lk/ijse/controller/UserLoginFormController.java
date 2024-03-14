@@ -113,7 +113,7 @@ public class UserLoginFormController {
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR,"your Login details are incorrect").show();
-                    break L;
+
                 }
             }
         } catch (SQLException e) {

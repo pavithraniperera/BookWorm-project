@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.Boimpl.TransactionBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
@@ -69,9 +70,8 @@ public class BorrowBookFormController {
 
     @FXML
     private TextField txtSEarch;
-    private BookBo bookBo = new BookBoImpl();
-    private UserBo userBo = new UserBoImpl();
-    private TransactionBo transactionBo = new TransactionBoImpl();
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
 
     private  ObservableList<BookTm> observableList = FXCollections.observableArrayList();
     public void initialize() {

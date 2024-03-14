@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
 import lk.ijse.Bo.custom.BranchBo;
@@ -40,8 +41,8 @@ public class UserRegisterFormController {
     @FXML
     private TextField txtPwd;
 
-    private UserBo userBo = new UserBoImpl();
-    private BranchBo branchBo = new BranchBoImpl();
+    private UserBo userBo = (UserBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.USER);
+    private BranchBo branchBo = (BranchBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BRANCH);
     public void initialize(){
         loadBranches();
     }

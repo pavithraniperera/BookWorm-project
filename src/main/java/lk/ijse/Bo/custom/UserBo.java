@@ -1,11 +1,12 @@
 package lk.ijse.Bo.custom;
 
+import lk.ijse.Bo.SuperBo;
 import lk.ijse.dto.UserDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserBo {
+public interface UserBo  extends SuperBo {
 
 
     void saveUser(UserDto userDto) throws SQLException;

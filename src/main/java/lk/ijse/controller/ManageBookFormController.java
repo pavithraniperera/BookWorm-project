@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
 import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.BranchBo;
@@ -62,8 +63,8 @@ public class ManageBookFormController {
     @FXML
     private TextField txtTitle;
     private  int id;
-    private BookBo bookBo = new BookBoImpl();
-    private BranchBo branchBo = new BranchBoImpl();
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+    private BranchBo branchBo = (BranchBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BRANCH);
     public void initialize(){
         setBranches();
         setStatus();

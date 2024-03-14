@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.AdminBo;
 import lk.ijse.Bo.custom.Boimpl.AdminBoImpl;
 import lk.ijse.dto.AdminDto;
@@ -35,7 +36,7 @@ public class AddNewAdminFormController {
 
     @FXML
     private TextField txtUserName;
-    private AdminBo adminBo = new AdminBoImpl();
+    private AdminBo adminBo = (AdminBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.ADMIN);
 
     @FXML
     void btnAddAdminOnAction(ActionEvent event) {

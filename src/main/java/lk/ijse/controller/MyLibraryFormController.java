@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.Boimpl.TransactionBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
@@ -29,9 +30,9 @@ public class MyLibraryFormController {
     public javafx.scene.control.ScrollPane ScrollPane;
     public GridPane bookGrid;
     private ObservableList<TransactionDto> observableList = FXCollections.observableArrayList();
-    private BookBo bookBo = new BookBoImpl();
-    private TransactionBo transactionBo = new TransactionBoImpl();
-    private UserBo userBo = new UserBoImpl();
+
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
+
     public void initialize(){
         loadUnreturnedBooks();
     }

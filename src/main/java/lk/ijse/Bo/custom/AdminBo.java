@@ -1,11 +1,12 @@
 package lk.ijse.Bo.custom;
 
+import lk.ijse.Bo.SuperBo;
 import lk.ijse.dto.AdminDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface AdminBo {
+public interface AdminBo extends SuperBo {
 
     List<AdminDto> getAllAdmins() throws SQLException;
 

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.TransactionBoImpl;
 import lk.ijse.Bo.custom.TransactionBo;
 import lk.ijse.Tm.TransactionTm;
@@ -57,7 +58,7 @@ public class AllTransactionHistoryFormController {
 
     @FXML
     private TextField txtSearch;
-    private TransactionBo transactionBo = new TransactionBoImpl();
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
     private ObservableList<TransactionTm> observableList = FXCollections.observableArrayList();
     private ObservableList<TransactionTm> userFiltered = FXCollections.observableArrayList();
     private ObservableList<TransactionTm> typeFiltered = FXCollections.observableArrayList();

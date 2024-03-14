@@ -15,6 +15,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.Boimpl.BranchBoImpl;
 import lk.ijse.Bo.custom.Boimpl.BookBoImpl;
 import lk.ijse.Bo.custom.Boimpl.UserBoImpl;
@@ -78,9 +79,9 @@ public class UserDashboardFormController {
     private TextField txtSearchBook;
     private int userId;
     private String branchName;
-    private UserBo userBo = new UserBoImpl();
-    private BookBo bookBo = new BookBoImpl();
-    private BranchBo branchBo = new BranchBoImpl();
+    private UserBo userBo = (UserBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.USER);
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+
     private  ObservableList<BookTm> observableList = FXCollections.observableArrayList();
     private   ObservableList<BookTm> filteredCategoryList = FXCollections.observableArrayList();
     private   ObservableList<BookTm> filteredyList = FXCollections.observableArrayList();

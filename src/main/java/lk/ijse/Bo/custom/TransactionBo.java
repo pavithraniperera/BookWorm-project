@@ -1,11 +1,12 @@
 package lk.ijse.Bo.custom;
 
+import lk.ijse.Bo.SuperBo;
 import lk.ijse.dto.TransactionDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface TransactionBo {
+public interface TransactionBo extends SuperBo {
 
 
     List<TransactionDto> getUnreturned(int userId) throws SQLException;
