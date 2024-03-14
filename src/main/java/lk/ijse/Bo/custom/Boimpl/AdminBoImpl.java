@@ -1,6 +1,7 @@
 package lk.ijse.Bo.custom.Boimpl;
 
 import lk.ijse.Bo.custom.AdminBo;
+import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dao.custom.AdminDao;
 import lk.ijse.Dao.custom.daoImpl.AdminDaoImpl;
 import lk.ijse.dto.AdminDto;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminBoImpl implements AdminBo {
- private AdminDao adminDao = new AdminDaoImpl();
+ private AdminDao adminDao = (AdminDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.ADMIN);
 
     @Override
     public List<AdminDto> getAllAdmins() throws SQLException {

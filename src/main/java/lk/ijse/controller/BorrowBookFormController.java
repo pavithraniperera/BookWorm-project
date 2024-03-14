@@ -151,21 +151,24 @@ public class BorrowBookFormController {
     private void borrowBook() {
 
        String bookTitle = txtBookTitle.getText() ;
-            if (bookTitle != null) {
+        BookDto  bookDto = null;
+        try {
+            bookDto = bookBo.getBook(bookTitle);
+            if (bookDto.getAvailability().equals("Available")){
                 TransactionDto dto = new TransactionDto(userId, bookTitle, LocalDate.now(), lblDueDate.getText(), false);
-                 // Assuming no return type for saveTransactiondata
-                BookDto bookDto = null;
-                try {
-                    transactionBo.saveTransactiondata(userId, bookTitle, dto);
-                    bookDto = bookBo.getBook(bookTitle);
-                    bookDto.setAvailability("Unavailable");
-                    bookBo.updateBook(bookDto);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-               // Assuming no return type for updateBook
+                transactionBo.saveTransactiondata(userId, bookTitle, dto);
+
+                bookDto.setAvailability("Unavailable");
+                bookBo.updateBook(bookDto);
                 new Alert(Alert.AlertType.CONFIRMATION, "Your book Borrow process is successful").show();
             }
+            else {
+                new Alert(Alert.AlertType.WARNING, "This Book is Currently Not Available. Try out another book").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -230,7 +233,6 @@ public class BorrowBookFormController {
                 img1.setVisible(true);
             }
         });
-
     }
     private void clearFields() {
         txtBookTitle.clear();

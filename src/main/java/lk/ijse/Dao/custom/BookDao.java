@@ -16,4 +16,5 @@ public interface BookDao extends CrudDao<Book> {
     List<Book> getByCategory(String category, Branch branch) throws SQLException;
 
 
+    long getBookCount() throws SQLException;
 }

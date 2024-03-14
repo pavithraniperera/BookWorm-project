@@ -5,7 +5,7 @@ import lk.ijse.dto.AdminDto;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface CrudDao <T>{
+public interface CrudDao <T>extends SuperDao{
   void save(T entity) throws SQLException;
   void update(T entity) throws  SQLException;
   void delete(int id) throws  SQLException;

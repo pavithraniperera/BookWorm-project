@@ -94,4 +94,13 @@ public class TransactionDaoImpl implements TransactionDao {
 
         });
     }
+
+    @Override
+    public List<Transaction> getTodayCheckOuts() throws SQLException {
+        return   BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Transaction where Date(borrowed)= CURRENT DATE ");
+            return query.getResultList();
+
+        });
+    }
 }

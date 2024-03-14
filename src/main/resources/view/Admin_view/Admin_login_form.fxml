@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminLoginFormController">
    <children>
@@ -58,5 +59,20 @@
             <Image url="@../../images/man-at-library-vector-43577249-removebg-preview.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1057.0" layoutY="32.0" onAction="#btnBackOnAction" prefHeight="63.0" prefWidth="139.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: white;" text="Back">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-back-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </JFXButton>
    </children>
 </AnchorPane>

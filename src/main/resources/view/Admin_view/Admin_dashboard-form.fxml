@@ -23,7 +23,7 @@
             </Label>
             <TableView fx:id="tblCheckOuts" layoutX="195.0" layoutY="422.0" prefHeight="241.0" prefWidth="834.0" stylesheets="@../../styles/Dashboard.css">
               <columns>
-                <TableColumn fx:id="colId" prefWidth="165.0" text="Borrower Id" />
+                <TableColumn fx:id="colId" prefWidth="165.0" text="Branch Name" />
                 <TableColumn fx:id="colName" minWidth="0.0" prefWidth="262.0" text="Borrower Name" />
                   <TableColumn fx:id="colBookName" minWidth="0.0" prefWidth="229.0" text="Book Title" />
                   <TableColumn fx:id="colDueDate" minWidth="0.0" prefWidth="177.0" text="Due Date" />

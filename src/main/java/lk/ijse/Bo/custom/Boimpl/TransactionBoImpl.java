@@ -1,6 +1,7 @@
 package lk.ijse.Bo.custom.Boimpl;
 
 import lk.ijse.Bo.custom.TransactionBo;
+import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dao.custom.BookDao;
 import lk.ijse.Dao.custom.TransactionDao;
 import lk.ijse.Dao.custom.UserDao;
@@ -18,8 +19,8 @@ import java.util.List;
 
 public class TransactionBoImpl implements TransactionBo {
     private TransactionDao transactionDao = new TransactionDaoImpl();
-    private UserDao userDao = new UserDaoImpl();
-    private BookDao bookDao = new BookDaoImpl();
+    private UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.USER);
+    private BookDao bookDao = (BookDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BOOK);
 
     @Override
     public List<TransactionDto> getUnreturned(int userId) throws SQLException {
@@ -92,6 +93,16 @@ public class TransactionBoImpl implements TransactionBo {
         User user = userDao.getbyId(userId);
         List<Transaction> transactions = transactionDao.getAllByUser(user);
         for (Transaction transaction : transactions){
+            dtoList.add(new TransactionDto(transaction.getId(), transaction.getUser().getUserId(),transaction.getUser().getName(),transaction.getBook().getBranchId().getBranchName(),transaction.getBook().getBookId(),transaction.getBook().getTitle(),transaction.getBorrowed(),transaction.getDueDate(),transaction.getReturnedDate(),transaction.getReturn()));
+        }
+        return dtoList;
+    }
+
+    @Override
+    public List<TransactionDto> getTodayCheckOuts() throws SQLException {
+        List<Transaction> list = transactionDao.getTodayCheckOuts();
+        List<TransactionDto> dtoList = new ArrayList<>();
+        for (Transaction transaction : list){
             dtoList.add(new TransactionDto(transaction.getId(), transaction.getUser().getUserId(),transaction.getUser().getName(),transaction.getBook().getBranchId().getBranchName(),transaction.getBook().getBookId(),transaction.getBook().getTitle(),transaction.getBorrowed(),transaction.getDueDate(),transaction.getReturnedDate(),transaction.getReturn()));
         }
         return dtoList;

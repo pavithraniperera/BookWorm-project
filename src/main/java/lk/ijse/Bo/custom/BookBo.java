@@ -23,4 +23,5 @@ public interface BookBo extends SuperBo {
     List<BookDto> getBookByCategory(String category, String branchName) throws SQLException;
 
 
+    long getBookCount() throws SQLException;
 }

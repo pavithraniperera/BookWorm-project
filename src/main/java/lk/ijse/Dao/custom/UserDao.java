@@ -7,4 +7,5 @@ import java.sql.SQLException;
 
 public interface UserDao extends CrudDao<User> {
 
+    long getUserCount() throws SQLException;
 }

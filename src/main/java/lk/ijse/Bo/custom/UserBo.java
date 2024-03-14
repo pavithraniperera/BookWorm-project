@@ -20,4 +20,6 @@ public interface UserBo  extends SuperBo {
     UserDto getUserById(int id) throws SQLException;
 
     void deleteUser(int id) throws SQLException;
+
+    long getUserCount() throws SQLException;
 }

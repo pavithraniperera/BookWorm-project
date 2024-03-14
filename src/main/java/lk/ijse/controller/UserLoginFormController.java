@@ -25,6 +25,7 @@ import java.util.List;
 public class UserLoginFormController {
 
     public AnchorPane root1;
+    public JFXButton btnBack;
     @FXML
     private JFXButton btnLogIn;
 
@@ -93,8 +94,10 @@ public class UserLoginFormController {
         String pw1 = showTextPw.getText();
         try {
             List<UserDto> userDtos = userBo.getAllUsers();
-            L:for (UserDto dto : userDtos){
-                if (dto.getEmail().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
+            boolean loginSuccess = false;
+            for (UserDto dto : userDtos) {
+                if (dto.getEmail().equals(username) && (dto.getPassword().equals(pw) || dto.getPassword().equals(pw1))) {
+                    // If the login is successful
                     userId = dto.getUserId();
                     AnchorPane anchorPane = null;
                     try {
@@ -107,19 +110,37 @@ public class UserLoginFormController {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
-                    break L;
-
+                    // Set login success flag to true
+                    loginSuccess = true;
+                    break;
                 }
-                else {
-                    new Alert(Alert.AlertType.ERROR,"your Login details are incorrect").show();
+            }
 
-                }
+            if (loginSuccess) {
+                // Show success message if login is successful
+                new Alert(Alert.AlertType.CONFIRMATION, "Login Successful").show();
+            } else {
+                // Show error message if login fails
+                new Alert(Alert.AlertType.ERROR, "Your login details are incorrect").show();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/loging_form.fxml"));
+            Scene scene = new Scene(anchorPane);
+            Stage stage = (Stage) root1.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            fillProfileData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+}
 
 

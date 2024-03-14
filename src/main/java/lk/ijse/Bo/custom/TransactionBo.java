@@ -23,4 +23,6 @@ public interface TransactionBo extends SuperBo {
     List<TransactionDto> getOverDue() throws SQLException;
 
     List<TransactionDto> getByUser(int userId) throws SQLException;
+
+    List<TransactionDto> getTodayCheckOuts() throws SQLException;
 }

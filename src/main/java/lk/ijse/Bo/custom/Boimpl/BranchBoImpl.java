@@ -1,6 +1,7 @@
 package lk.ijse.Bo.custom.Boimpl;
 
 import lk.ijse.Bo.custom.BranchBo;
+import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dao.custom.AdminDao;
 import lk.ijse.Dao.custom.BranchDao;
 import lk.ijse.Dao.custom.daoImpl.AdminDaoImpl;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BranchBoImpl implements BranchBo {
-    private BranchDao branchDao = new BranchDaoImpl();
-    private AdminDao adminDao = new AdminDaoImpl();
+    private BranchDao branchDao = (BranchDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BRANCH);
+    private AdminDao adminDao = (AdminDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.ADMIN);
 
     @Override
     public void saveBranch(BranchDto dto) throws SQLException {

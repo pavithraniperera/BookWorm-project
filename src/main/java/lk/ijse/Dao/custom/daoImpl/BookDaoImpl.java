@@ -94,5 +94,13 @@ public class BookDaoImpl implements BookDao {
         });
     }
 
+    @Override
+    public long getBookCount() throws SQLException {
+        return executeTransaction(session -> {
+            Long bookCount =(Long) session.createQuery("select count(*) from Book ").getSingleResult();
+            return bookCount;
+        });
+    }
+
 
 }

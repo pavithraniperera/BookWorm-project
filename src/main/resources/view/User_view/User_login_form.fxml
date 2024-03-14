@@ -11,6 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.effect.DropShadow?>
 <AnchorPane fx:id="root1" prefHeight="870.0" prefWidth="1239.0" styleClass="admin-anchor-pane" stylesheets="@../../styles/Login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserLoginFormController">
     <children>
         <AnchorPane layoutX="182.0" layoutY="99.0" prefHeight="722.0" prefWidth="603.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="anchor-pane-with-background3">
@@ -73,5 +74,20 @@
                 <Image url="@../../images/man-at-library-vector-43577249-removebg-preview.png" />
             </image>
         </ImageView>
+        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="1057.0" layoutY="32.0" onAction="#btnBackOnAction" prefHeight="63.0" prefWidth="139.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: white;" text="Back">
+            <graphic>
+                <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/icons8-back-100.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font size="15.0" />
+            </font>
+            <effect>
+                <DropShadow />
+            </effect>
+        </JFXButton>
     </children>
 </AnchorPane>

@@ -66,4 +66,12 @@ public class UserDaoImpl implements UserDao  {
     public User getbyId(int id) throws SQLException {
         return executeTransaction(session -> session.get(User.class,id));
     }
+
+    @Override
+    public long getUserCount() throws SQLException {
+        return executeTransaction(session -> {
+            Long userCount =(Long) session.createQuery("select count(*) from User ").getSingleResult();
+            return userCount;
+        });
+    }
 }

@@ -45,6 +45,14 @@ public class TransactionTm {
         this.dueDate = dueDate;
     }
 
+    public TransactionTm(String branchName, String bookName, LocalDate dueDate, String userName) {
+        this.bookName =bookName;
+        this .dueDate = dueDate;
+        this.branchName = branchName;
+        this.userName = userName;
+    }
+
+
     public String getTransactionId() {
         return transactionId;
     }

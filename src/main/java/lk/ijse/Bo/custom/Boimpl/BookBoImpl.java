@@ -1,6 +1,7 @@
 package lk.ijse.Bo.custom.Boimpl;
 
 import lk.ijse.Bo.custom.BookBo;
+import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dao.custom.BranchDao;
 import lk.ijse.Dao.custom.BookDao;
 import lk.ijse.Dao.custom.daoImpl.BranchDaoImpl;
@@ -15,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookBoImpl implements BookBo {
-    private BookDao bookDao = new BookDaoImpl();
-    private BranchDao branchDao = new BranchDaoImpl();
+    private BookDao bookDao = (BookDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BOOK);
+    private BranchDao branchDao = (BranchDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BRANCH);
     @Override
     public void saveBook(BookDto bookDto) throws SQLException {
         Branch branch = branchDao.getbyId(bookDto.getBranchId());
@@ -72,6 +73,11 @@ public class BookBoImpl implements BookBo {
         }
         return dtos;
 
+    }
+
+    @Override
+    public long getBookCount() throws SQLException {
+       return bookDao.getBookCount();
     }
 
 

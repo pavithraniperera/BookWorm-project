@@ -15,6 +15,7 @@ import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.custom.AdminBo;
 import lk.ijse.Bo.custom.Boimpl.AdminBoImpl;
 import lk.ijse.dto.AdminDto;
+import lk.ijse.dto.UserDto;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,6 +25,7 @@ import java.util.List;
 public class AdminLoginFormController {
 
     public AnchorPane root;
+    public JFXButton btnBack;
     @FXML
     private JFXButton btnLogIn;
 
@@ -67,8 +69,11 @@ public class AdminLoginFormController {
         String pw1 = showTextPw.getText();
         try {
             List<AdminDto> adminDtoList = adminBo.getAllAdmins();
-           L: for (AdminDto dto : adminDtoList){
-                if (dto.getUserName().equals(username) && dto.getPassword().equals(pw) || dto.getPassword().equals(pw1)){
+
+            boolean loginSuccess = false;
+            for (AdminDto dto : adminDtoList) {
+                if (dto.getUserName().equals(username) && (dto.getPassword().equals(pw) || dto.getPassword().equals(pw1))) {
+
                     AnchorPane anchorPane = null;
                     try {
                         anchorPane = FXMLLoader.load(getClass().getResource("/view/Admin_view/Admin_dashboard-form.fxml"));
@@ -80,16 +85,19 @@ public class AdminLoginFormController {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
-                    break L;
-
-                }
-                else {
-                    new Alert(Alert.AlertType.ERROR,"your Login details are incorrect").show();
-                    break L;
+                    // Set login success flag to true
+                    loginSuccess = true;
+                    break;
                 }
             }
 
+            if (loginSuccess) {
+                // Show success message if login is successful
+                new Alert(Alert.AlertType.CONFIRMATION, "Login Successful").show();
+            } else {
+                // Show error message if login fails
+                new Alert(Alert.AlertType.ERROR, "Your login details are incorrect").show();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -99,4 +107,18 @@ public class AdminLoginFormController {
         AdminProfileFormController.setValue(txtUserName.getText());
     }
 
+    public void btnBackOnAction(ActionEvent actionEvent) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/loging_form.fxml"));
+            Scene scene = new Scene(anchorPane);
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            fillProfileData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

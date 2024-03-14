@@ -2,6 +2,7 @@ package lk.ijse.Bo.custom.Boimpl;
 
 import lk.ijse.Bo.custom.BranchBo;
 import lk.ijse.Bo.custom.UserBo;
+import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dao.custom.BranchDao;
 import lk.ijse.Dao.custom.UserDao;
 import lk.ijse.Dao.custom.daoImpl.BranchDaoImpl;
@@ -15,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserBoImpl implements UserBo {
-    private final UserDao userDao = new UserDaoImpl();
-    private BranchDao branchDao = new BranchDaoImpl();
+    private final UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.USER);
+    private BranchDao branchDao = (BranchDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BRANCH);
 
     @Override
     public void saveUser(UserDto userDto) throws SQLException {
@@ -58,5 +59,10 @@ public class UserBoImpl implements UserBo {
     public void deleteUser(int id) throws SQLException {
         userDao.delete(id);
 
+    }
+
+    @Override
+    public long getUserCount() throws SQLException {
+        return  userDao.getUserCount();
     }
 }
