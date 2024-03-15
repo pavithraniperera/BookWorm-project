@@ -5,7 +5,7 @@ Book: Represents a book in the library system with attributes like title, author
 User: Represents a user of the library system
 Transaction : Represent a assosiate entity between user and book
 
-☑️ RELATIONSHIP ➡️
+☑️ RELATIONSHIP :-
 Admin - Branch ▶️ One TO Many
 User - Branch  ▶️ One TO Many
 User - Book  ▶️ Many TO Many
