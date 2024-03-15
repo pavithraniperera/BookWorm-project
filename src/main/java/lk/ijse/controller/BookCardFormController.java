@@ -70,12 +70,9 @@ public class BookCardFormController {
             alert.getButtonTypes().setAll(yesButton, noButton);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == yesButton) {
-              /*  boolean isUpdated =   transactionBo.update(dto);
-                if (isUpdated){
-                    bookBo.updateBook(dto1);
-                    new Alert(Alert.AlertType.CONFIRMATION,"return successful.").show();
-                }*/
+
                updateBookAndTransaction(dto1,dto);
+               libraryFormController.initialize();
             }
 
         } catch (SQLException e) {

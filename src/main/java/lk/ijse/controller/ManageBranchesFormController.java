@@ -101,6 +101,7 @@ public class ManageBranchesFormController {
                 new Alert(Alert.AlertType.CONFIRMATION,"New Branch Added").show();
                 setTableValues();
                 tblBranch.refresh();
+                clearFields();
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,"Failed to Added Branch").show();
             }
@@ -135,6 +136,7 @@ public class ManageBranchesFormController {
             new Alert(Alert.AlertType.CONFIRMATION,"Branch Deleted").show();
             setTableValues();
             tblBranch.refresh();
+            clearFields();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,"Failed to delete the branch").show();
         }
@@ -150,6 +152,7 @@ public class ManageBranchesFormController {
                 new Alert(Alert.AlertType.CONFIRMATION,"Branch updated").show();
                 setTableValues();
                 tblBranch.refresh();
+                clearFields();
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,"Failed to update the branch").show();
 
@@ -173,6 +176,12 @@ public class ManageBranchesFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    private void clearFields(){
+        txtName.setText("");
+        txtAddress.setText("");
+        txtContact.setText("");
+
     }
 
 }

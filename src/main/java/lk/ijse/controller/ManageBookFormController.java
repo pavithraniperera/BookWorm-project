@@ -111,6 +111,7 @@ public class ManageBookFormController {
                 new Alert(Alert.AlertType.CONFIRMATION,"New Book Added").show();
                 loadAllBooks();
                 tblBook.refresh();
+                clearFields();
 
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,"Failed to added new book").show();
@@ -128,6 +129,7 @@ public class ManageBookFormController {
             new Alert(Alert.AlertType.CONFIRMATION,"Book deleted").show();
             loadAllBooks();
             tblBook.refresh();
+            clearFields();
         } catch (SQLException e) {
 
             new Alert(Alert.AlertType.ERROR,"Failed to delete book").show();
@@ -142,6 +144,7 @@ public class ManageBookFormController {
                 bookBo.updateBook(new BookDto(id,txtTitle.getText(),txtAuthor.getText(),txtGenere.getText(),cmbAvalability.getValue(),branchId));
                 loadAllBooks();
                 tblBook.refresh();
+                clearFields();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -198,6 +201,13 @@ public class ManageBookFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    private void clearFields(){
+        txtTitle.setText("");
+        txtAuthor.setText("");
+        txtGenere.setText("");
+        cmbBranch.setValue("");
+        cmbAvalability.setValue("");
     }
 
 }

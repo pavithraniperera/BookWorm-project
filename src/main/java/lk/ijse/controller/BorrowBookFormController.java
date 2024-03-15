@@ -141,6 +141,7 @@ public class BorrowBookFormController {
             if (result.isPresent() && result.get() == yesButton) {
 
                 borrowBook();
+                clearFields();
             }
         }else{
             new Alert(Alert.AlertType.INFORMATION,"please select a book").show();
@@ -161,9 +162,11 @@ public class BorrowBookFormController {
                 bookDto.setAvailability("Unavailable");
                 bookBo.updateBook(bookDto);
                 new Alert(Alert.AlertType.CONFIRMATION, "Your book Borrow process is successful").show();
+
             }
             else {
                 new Alert(Alert.AlertType.WARNING, "This Book is Currently Not Available. Try out another book").show();
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
